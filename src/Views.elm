@@ -10,7 +10,8 @@ import Route exposing (Route)
 import Slides.Home as Home
 import Slides.About as About
 import Slides.Overview as Overview
-import Slides.WhyElm1 as WhyElm1 exposing (ShowType(..))
+import Slides.WhyElm1 as WhyElm1
+import Slides.TitleAndImage as TitleAndImage
 
 
 -- VIEW --
@@ -31,35 +32,43 @@ view model =
                     Overview.view
 
                 Route.WhyElm1_1 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Show WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide)
+                    WhyElm1.view (WhyElm1.init 1)
 
                 Route.WhyElm1_2 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Fade WhyElm1.Show WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide)
+                    WhyElm1.view (WhyElm1.init 2)
 
                 Route.WhyElm1_3 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Fade WhyElm1.Fade WhyElm1.Show WhyElm1.Hide WhyElm1.Hide WhyElm1.Hide)
+                    WhyElm1.view (WhyElm1.init 3)
 
                 Route.WhyElm1_4 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Show WhyElm1.Hide WhyElm1.Hide)
+                    WhyElm1.view (WhyElm1.init 4)
 
                 Route.WhyElm1_5 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Show WhyElm1.Hide)
+                    WhyElm1.view (WhyElm1.init 5)
 
-                Route.WhyElm1_6 ->
-                    WhyElm1.view (WhyElm1.Model WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Fade WhyElm1.Show)
+                Route.Speed ->
+                    TitleAndImage.view "Speed" "images/speedcomparison.png" "80%"
 
-                _ ->
-                    Home.view
+                Route.ErrorMessages ->
+                    TitleAndImage.view "Error Messages" "images/errormessages.png" "80%"
+
+                Route.SemanticVersioning ->
+                    TitleAndImage.view "Enforced Semantic Versioning" "images/elmdiff.png" "50%"
 
         progressBar =
             progressView model
     in
-        div []
+        div [ posFixed, sansSerif ]
             [ navMenu model
             , elmBorder
-            , div [ sansSerif, slideContainerStyle model ] [ getView, navArrows ]
+            , div [ slideContainerStyle model ] [ getView, navArrows ]
             , progressBar
             ]
+
+
+posFixed : Attribute Msg
+posFixed =
+    style [ ( "position", "fixed" ), ( "width", "100%" ) ]
 
 
 elmBorder : Html Msg

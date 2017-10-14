@@ -12,7 +12,7 @@ view =
         [ h1 [ titleSize2, centerStyle ] [ text "Overview" ]
         , ul []
             [ li [ mainFontSize2 ] [ text "Why Elm?" ]
-            , li [ mainFontSize2 ] [ text "The Elm Platform" ]
+              --    , li [ mainFontSize2 ] [ text "The Elm Platform" ]
             , li [ mainFontSize2 ] [ text "The Elm Architecture" ]
             , li [ mainFontSize2 ] [ text "Functional Data Types" ]
             , li [ mainFontSize2 ] [ text "Integrating into existing code bases" ]

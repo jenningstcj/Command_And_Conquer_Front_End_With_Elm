@@ -18,13 +18,18 @@ type Route
     | WhyElm1_3
     | WhyElm1_4
     | WhyElm1_5
-    | WhyElm1_6
-    | Slide7
+    | Speed
+    | ErrorMessages
+    | SemanticVersioning
+
+
+
+{- routeList ONLY USED TO GENERATE SIDE MENU -}
 
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "WhyElm1_6" ]
+    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning" ]
 
 
 stringToRoute : String -> Route
@@ -54,8 +59,14 @@ stringToRoute str =
         "WhyElm1_5" ->
             WhyElm1_5
 
-        "WhyElm1_6" ->
-            WhyElm1_6
+        "Speed" ->
+            Speed
+
+        "ErrorMessages" ->
+            ErrorMessages
+
+        "SemanticVersioning" ->
+            SemanticVersioning
 
         _ ->
             Home
@@ -72,7 +83,9 @@ route =
         , Url.map WhyElm1_3 (s "whyelm1_3")
         , Url.map WhyElm1_4 (s "whyelm1_4")
         , Url.map WhyElm1_5 (s "whyelm1_5")
-        , Url.map WhyElm1_6 (s "whyelm1_6")
+        , Url.map Speed (s "speed")
+        , Url.map ErrorMessages (s "errormessages")
+        , Url.map SemanticVersioning (s "semanticversioning")
         ]
 
 
@@ -109,11 +122,14 @@ routeToString page =
                 WhyElm1_5 ->
                     [ "whyelm1_5" ]
 
-                WhyElm1_6 ->
-                    [ "whyelm1_6" ]
+                Speed ->
+                    [ "speed" ]
 
-                Slide7 ->
-                    [ "slide7" ]
+                ErrorMessages ->
+                    [ "errormessages" ]
+
+                SemanticVersioning ->
+                    [ "semanticversioning" ]
     in
         "#/" ++ String.join "/" pieces
 

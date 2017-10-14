@@ -59,7 +59,7 @@ navMenuStyle model =
         changingStyles =
             case model.showMenu of
                 True ->
-                    [ ( "width", "250px" ) ]
+                    [ ( "width", "275px" ) ]
 
                 False ->
                     [ ( "width", "0" ) ]
@@ -90,7 +90,7 @@ slideContainerStyle model =
         changingStyles =
             case model.showMenu of
                 True ->
-                    [ ( "marginLeft", "250px" ) ]
+                    [ ( "marginLeft", "275px" ) ]
 
                 False ->
                     [ ( "marginLeft", "0" ) ]
@@ -171,22 +171,22 @@ centerStyle =
 
 titleSize1 : Attribute Msg
 titleSize1 =
-    style [ ( "fontSize", "44pt" ) ]
+    style [ ( "fontSize", "4em" {- "44pt" -} ) ]
 
 
 titleSize2 : Attribute Msg
 titleSize2 =
-    style [ ( "fontSize", "36pt" ) ]
+    style [ ( "fontSize", "3.5em" {- "36pt" -} ) ]
 
 
 mainFontSize1 : Attribute Msg
 mainFontSize1 =
-    style [ ( "fontSize", "32pt" ) ]
+    style [ ( "fontSize", "3em" {- "32pt" -} ) ]
 
 
 mainFontSize2 : Attribute Msg
 mainFontSize2 =
-    style [ ( "fontSize", "28pt" ) ]
+    style [ ( "fontSize", "2.5em" {- "28pt" -} ) ]
 
 
 listStyleNone : Attribute Msg
