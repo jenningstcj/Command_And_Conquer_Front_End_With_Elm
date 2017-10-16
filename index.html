@@ -10262,6 +10262,22 @@ var _user$project$Models$Model = F3(
 	function (a, b, c) {
 		return {route: a, showMenu: b, progressPercentage: c};
 	});
+var _user$project$Styles$setHeight = function (perc) {
+	return _elm_lang$html$Html_Attributes$style(
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'height', _1: perc},
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Styles$setWidth = function (perc) {
+	return _elm_lang$html$Html_Attributes$style(
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'width', _1: perc},
+			_1: {ctor: '[]'}
+		});
+};
 var _user$project$Styles$hide = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -10579,6 +10595,37 @@ var _user$project$Styles$arrowsContainerStyle = _elm_lang$html$Html_Attributes$s
 			}
 		}
 	});
+var _user$project$Slides_Home$setImage = function (u) {
+	return _elm_lang$html$Html_Attributes$style(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'backgroundImage',
+				_1: A2(
+					_elm_lang$core$Basics_ops['++'],
+					'url(',
+					A2(_elm_lang$core$Basics_ops['++'], u, ')'))
+			},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'backgroundSize', _1: 'contain'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'backgroundRepeat', _1: 'no-repeat'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'backgroundPosition', _1: 'center'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '65%'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+};
 var _user$project$Slides_Home$logoStyle = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -10594,7 +10641,16 @@ var _user$project$Slides_Home$view = A2(
 	{
 		ctor: '::',
 		_0: _elm_lang$html$Html_Attributes$class('home-page'),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
 	},
 	{
 		ctor: '::',
@@ -10620,25 +10676,10 @@ var _user$project$Slides_Home$view = A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Styles$centerStyle,
+					_0: _user$project$Slides_Home$setImage('images/elm_logo.svg'),
 					_1: {ctor: '[]'}
 				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$img,
-						{
-							ctor: '::',
-							_0: _user$project$Slides_Home$logoStyle,
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$src('images/elm_logo.svg'),
-								_1: {ctor: '[]'}
-							}
-						},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}),
+				{ctor: '[]'}),
 			_1: {ctor: '[]'}
 		}
 	});
@@ -11003,19 +11044,42 @@ var _user$project$Slides_WhyElm1$init = function (num) {
 			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
 	}
 };
-var _user$project$Slides_TitleAndImage$setWidth = function (perc) {
+var _user$project$Slides_TitleAndImage$setImage = function (u) {
 	return _elm_lang$html$Html_Attributes$style(
 		{
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'width', _1: perc},
-			_1: {ctor: '[]'}
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'backgroundImage',
+				_1: A2(
+					_elm_lang$core$Basics_ops['++'],
+					'url(',
+					A2(_elm_lang$core$Basics_ops['++'], u, ')'))
+			},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'backgroundSize', _1: 'contain'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'backgroundRepeat', _1: 'no-repeat'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'backgroundPosition', _1: 'center'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
 		});
 };
 var _user$project$Slides_TitleAndImage$view = F3(
 	function (title, url, widthPercent) {
 		return A2(
 			_elm_lang$html$Html$div,
-			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _user$project$Styles$setHeight('100%'),
+				_1: {ctor: '[]'}
+			},
 			{
 				ctor: '::',
 				_0: A2(
@@ -11040,29 +11104,14 @@ var _user$project$Slides_TitleAndImage$view = F3(
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _user$project$Styles$centerStyle,
+							_0: _user$project$Styles$setHeight('80%'),
 							_1: {
 								ctor: '::',
-								_0: _user$project$Styles$mainFontSize1,
+								_0: _user$project$Slides_TitleAndImage$setImage(url),
 								_1: {ctor: '[]'}
 							}
 						},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$img,
-								{
-									ctor: '::',
-									_0: _user$project$Slides_TitleAndImage$setWidth(widthPercent),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$src(url),
-										_1: {ctor: '[]'}
-									}
-								},
-								{ctor: '[]'}),
-							_1: {ctor: '[]'}
-						}),
+						{ctor: '[]'}),
 					_1: {ctor: '[]'}
 				}
 			});
@@ -11321,7 +11370,11 @@ var _user$project$Views$view = function (model) {
 			_1: {
 				ctor: '::',
 				_0: _user$project$Styles$sansSerif,
-				_1: {ctor: '[]'}
+				_1: {
+					ctor: '::',
+					_0: _user$project$Styles$setHeight('100%'),
+					_1: {ctor: '[]'}
+				}
 			}
 		},
 		{
@@ -11337,7 +11390,11 @@ var _user$project$Views$view = function (model) {
 						{
 							ctor: '::',
 							_0: _user$project$Styles$slideContainerStyle(model),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _user$project$Styles$setHeight('90%'),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
