@@ -58,10 +58,10 @@ view model =
         progressBar =
             progressView model
     in
-        div [ posFixed, sansSerif ]
+        div [ posFixed, sansSerif, setHeight "100%" ]
             [ navMenu model
             , elmBorder
-            , div [ slideContainerStyle model ] [ getView, navArrows ]
+            , div [ slideContainerStyle model, setHeight "90%" ] [ getView, navArrows ]
             , progressBar
             ]
 

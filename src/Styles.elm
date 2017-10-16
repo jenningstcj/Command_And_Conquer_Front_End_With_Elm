@@ -207,3 +207,13 @@ fadeFont =
 hide : Attribute Msg
 hide =
     style [ ( "display", "none" ) ]
+
+
+setWidth : String -> Attribute Msg
+setWidth perc =
+    style [ ( "width", perc ) ]
+
+
+setHeight : String -> Attribute Msg
+setHeight perc =
+    style [ ( "height", perc ) ]

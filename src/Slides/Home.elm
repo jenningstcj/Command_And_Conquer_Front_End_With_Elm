@@ -23,11 +23,10 @@ type alias Model =
 
 view : Html Msg
 view =
-    div [ class "home-page" ]
+    div [ class "home-page", style [ ( "height", "100%" ) ] ]
         [ h1 [ centerStyle, titleSize1 ] [ text "Command and Conquer the Front End with Elm" ]
-        , div [ centerStyle ]
-            [ img [ logoStyle, src "images/elm_logo.svg" ] []
-            ]
+        , div [ setImage "images/elm_logo.svg" ]
+            []
         ]
 
 
@@ -36,4 +35,15 @@ logoStyle =
     style
         [ ( "width", "40%" )
         , ( "height", "40%" )
+        ]
+
+
+setImage : String -> Attribute Msg
+setImage u =
+    style
+        [ ( "backgroundImage", "url(" ++ u ++ ")" )
+        , ( "backgroundSize", "contain" )
+        , ( "backgroundRepeat", "no-repeat" )
+        , ( "backgroundPosition", "center" )
+        , ( "height", "65%" )
         ]
