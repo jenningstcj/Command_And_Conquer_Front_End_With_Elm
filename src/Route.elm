@@ -21,6 +21,13 @@ type Route
     | Speed
     | ErrorMessages
     | SemanticVersioning
+    | Currying1
+    | Currying2
+    | Currying3
+    | Currying4
+    | Currying5
+    | Currying6
+    | Currying7
 
 
 
@@ -29,7 +36,7 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning" ]
+    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning", "Currying1", "Currying2", "Currying3", "Currying4", "Currying5", "Currying6", "Currying7" ]
 
 
 stringToRoute : String -> Route
@@ -68,6 +75,27 @@ stringToRoute str =
         "SemanticVersioning" ->
             SemanticVersioning
 
+        "Currying1" ->
+            Currying1
+
+        "Currying2" ->
+            Currying2
+
+        "Currying3" ->
+            Currying3
+
+        "Currying4" ->
+            Currying4
+
+        "Currying5" ->
+            Currying5
+
+        "Currying6" ->
+            Currying6
+
+        "Currying7" ->
+            Currying7
+
         _ ->
             Home
 
@@ -86,6 +114,13 @@ route =
         , Url.map Speed (s "speed")
         , Url.map ErrorMessages (s "errormessages")
         , Url.map SemanticVersioning (s "semanticversioning")
+        , Url.map Currying1 (s "currying1")
+        , Url.map Currying2 (s "currying2")
+        , Url.map Currying3 (s "currying3")
+        , Url.map Currying4 (s "currying4")
+        , Url.map Currying5 (s "currying5")
+        , Url.map Currying6 (s "currying6")
+        , Url.map Currying7 (s "currying7")
         ]
 
 
@@ -130,6 +165,27 @@ routeToString page =
 
                 SemanticVersioning ->
                     [ "semanticversioning" ]
+
+                Currying1 ->
+                    [ "currying1" ]
+
+                Currying2 ->
+                    [ "currying2" ]
+
+                Currying3 ->
+                    [ "currying3" ]
+
+                Currying4 ->
+                    [ "currying4" ]
+
+                Currying5 ->
+                    [ "currying5" ]
+
+                Currying6 ->
+                    [ "currying6" ]
+
+                Currying7 ->
+                    [ "currying7" ]
     in
         "#/" ++ String.join "/" pieces
 

@@ -1,7 +1,5 @@
 module Main exposing (main)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
 import Navigation exposing (Location)
 import Json.Decode as Decode exposing (Value)
 import Keyboard

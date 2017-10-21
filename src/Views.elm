@@ -12,6 +12,7 @@ import Slides.About as About
 import Slides.Overview as Overview
 import Slides.WhyElm1 as WhyElm1
 import Slides.TitleAndImage as TitleAndImage
+import Slides.CodeExamples as CodeExamples
 
 
 -- VIEW --
@@ -54,6 +55,27 @@ view model =
 
                 Route.SemanticVersioning ->
                     TitleAndImage.view "Enforced Semantic Versioning" "images/elmdiff.png" "50%"
+
+                Route.Currying1 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
+
+                Route.Currying2 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
+
+                Route.Currying3 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
+
+                Route.Currying4 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 4 5
+
+                Route.Currying5 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 6 7
+
+                Route.Currying6 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 7 8
+
+                Route.Currying7 ->
+                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 8 9
 
         progressBar =
             progressView model
