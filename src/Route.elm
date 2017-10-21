@@ -28,6 +28,11 @@ type Route
     | Currying5
     | Currying6
     | Currying7
+    | AdvancedCurrying1
+    | AdvancedCurrying2
+    | AdvancedCurrying3
+    | AdvancedCurrying4
+    | AdvancedCurrying5
 
 
 
@@ -36,7 +41,11 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning", "Currying1", "Currying2", "Currying3", "Currying4", "Currying5", "Currying6", "Currying7" ]
+    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning", "Currying1", "Currying2", "Currying3", "Currying4", "Currying5", "Currying6", "Currying7", "AdvancedCurrying1", "AdvancedCurrying2", "AdvancedCurrying3", "AdvancedCurrying4", "AdvancedCurrying5" ]
+
+
+
+{- stringToRoute only used to handle keyboard navigation -}
 
 
 stringToRoute : String -> Route
@@ -96,6 +105,21 @@ stringToRoute str =
         "Currying7" ->
             Currying7
 
+        "AdvancedCurrying1" ->
+            AdvancedCurrying1
+
+        "AdvancedCurrying2" ->
+            AdvancedCurrying2
+
+        "AdvancedCurrying3" ->
+            AdvancedCurrying3
+
+        "AdvancedCurrying4" ->
+            AdvancedCurrying4
+
+        "AdvancedCurrying5" ->
+            AdvancedCurrying5
+
         _ ->
             Home
 
@@ -121,6 +145,11 @@ route =
         , Url.map Currying5 (s "currying5")
         , Url.map Currying6 (s "currying6")
         , Url.map Currying7 (s "currying7")
+        , Url.map AdvancedCurrying1 (s "advancedcurrying1")
+        , Url.map AdvancedCurrying2 (s "advancedcurrying2")
+        , Url.map AdvancedCurrying3 (s "advancedcurrying3")
+        , Url.map AdvancedCurrying4 (s "advancedcurrying4")
+        , Url.map AdvancedCurrying5 (s "advancedcurrying5")
         ]
 
 
@@ -186,6 +215,21 @@ routeToString page =
 
                 Currying7 ->
                     [ "currying7" ]
+
+                AdvancedCurrying1 ->
+                    [ "advancedcurrying1" ]
+
+                AdvancedCurrying2 ->
+                    [ "advancedcurrying2" ]
+
+                AdvancedCurrying3 ->
+                    [ "advancedcurrying3" ]
+
+                AdvancedCurrying4 ->
+                    [ "advancedcurrying4" ]
+
+                AdvancedCurrying5 ->
+                    [ "advancedcurrying5" ]
     in
         "#/" ++ String.join "/" pieces
 

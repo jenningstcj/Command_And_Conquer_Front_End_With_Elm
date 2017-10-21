@@ -77,6 +77,21 @@ view model =
                 Route.Currying7 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 8 9
 
+                Route.AdvancedCurrying1 ->
+                    CodeExamples.view "Currying" CodeExamples.mapExample 0 2
+
+                Route.AdvancedCurrying2 ->
+                    CodeExamples.view "Currying" CodeExamples.mapExample 3 6
+
+                Route.AdvancedCurrying3 ->
+                    CodeExamples.view "Currying" CodeExamples.mapExample 7 9
+
+                Route.AdvancedCurrying4 ->
+                    CodeExamples.view "Currying" CodeExamples.mapExample 9 10
+
+                Route.AdvancedCurrying5 ->
+                    CodeExamples.view "Currying" CodeExamples.mapExample 11 12
+
         progressBar =
             progressView model
     in
