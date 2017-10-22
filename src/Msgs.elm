@@ -9,3 +9,4 @@ type Msg
     | Prev
     | ToggleMenu
     | Noop
+    | MaybeDemoUpdateNum String

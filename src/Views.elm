@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Msgs exposing (Msg(..))
+import Regex exposing (..)
 import Styles exposing (..)
 import Models exposing (Model)
 import Route exposing (Route)
@@ -13,6 +14,7 @@ import Slides.Overview as Overview
 import Slides.WhyElm1 as WhyElm1
 import Slides.TitleAndImage as TitleAndImage
 import Slides.CodeExamples as CodeExamples
+import Slides.MaybeDemo as MaybeDemo
 
 
 -- VIEW --
@@ -32,65 +34,74 @@ view model =
                 Route.Overview ->
                     Overview.view
 
-                Route.WhyElm1_1 ->
+                Route.Why_Elm_1 ->
                     WhyElm1.view (WhyElm1.init 1)
 
-                Route.WhyElm1_2 ->
+                Route.Why_Elm_2 ->
                     WhyElm1.view (WhyElm1.init 2)
 
-                Route.WhyElm1_3 ->
+                Route.Why_Elm_3 ->
                     WhyElm1.view (WhyElm1.init 3)
 
-                Route.WhyElm1_4 ->
+                Route.Why_Elm_4 ->
                     WhyElm1.view (WhyElm1.init 4)
 
-                Route.WhyElm1_5 ->
+                Route.Why_Elm_5 ->
                     WhyElm1.view (WhyElm1.init 5)
 
                 Route.Speed ->
                     TitleAndImage.view "Speed" "images/speedcomparison.png" "80%"
 
-                Route.ErrorMessages ->
+                Route.Error_Messages ->
                     TitleAndImage.view "Error Messages" "images/errormessages.png" "80%"
 
-                Route.SemanticVersioning ->
+                Route.Semantic_Versioning ->
                     TitleAndImage.view "Enforced Semantic Versioning" "images/elmdiff.png" "50%"
 
-                Route.Currying1 ->
+                Route.Currying_1 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
 
-                Route.Currying2 ->
+                Route.Currying_2 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
 
-                Route.Currying3 ->
+                Route.Currying_3 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
 
-                Route.Currying4 ->
+                Route.Currying_4 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 4 5
 
-                Route.Currying5 ->
+                Route.Currying_5 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 6 7
 
-                Route.Currying6 ->
+                Route.Currying_6 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 7 8
 
-                Route.Currying7 ->
+                Route.Currying_7 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 8 9
 
-                Route.AdvancedCurrying1 ->
+                Route.Advanced_Currying_1 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 0 2
 
-                Route.AdvancedCurrying2 ->
+                Route.Advanced_Currying_2 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 3 6
 
-                Route.AdvancedCurrying3 ->
+                Route.Advanced_Currying_3 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 7 9
 
-                Route.AdvancedCurrying4 ->
+                Route.Advanced_Currying_4 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 9 10
 
-                Route.AdvancedCurrying5 ->
+                Route.Advanced_Currying_5 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 11 12
+
+                Route.Maybe_1 ->
+                    CodeExamples.view "Maybe" CodeExamples.maybeExample1 1 1
+
+                Route.Maybe_2 ->
+                    CodeExamples.view "Maybe" CodeExamples.maybeExample2 1 1
+
+                Route.Maybe_3 ->
+                    MaybeDemo.view model.maybeDemoModel
 
         progressBar =
             progressView model
@@ -132,10 +143,15 @@ navMenu model =
     let
         menuItems =
             Route.routeList
-                |> List.map (\x -> a [ navMenuAnchorStyle, href ("#/" ++ String.toLower x) ] [ text x ])
+                |> List.map (\x -> a [ navMenuAnchorStyle, href ("#/" ++ String.toLower x) ] [ text (replaceUnderscoreWithSpace x) ])
     in
         div [ navMenuStyle model ]
             menuItems
+
+
+replaceUnderscoreWithSpace : String -> String
+replaceUnderscoreWithSpace str =
+    str |> Regex.replace Regex.All (Regex.regex "[_]") (\_ -> " ")
 
 
 progressView : Model -> Html Msg

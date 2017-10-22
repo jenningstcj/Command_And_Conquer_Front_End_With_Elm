@@ -4,7 +4,7 @@ import Navigation exposing (Location)
 import Json.Decode as Decode exposing (Value)
 import Keyboard
 import Msgs exposing (Msg(..))
-import Models exposing (Model)
+import Models exposing (Model, MaybeDemoModel)
 import Views exposing (view)
 import Route exposing (Route)
 
@@ -15,6 +15,7 @@ init val location =
         { route = Route.Home
         , showMenu = False
         , progressPercentage = 0
+        , maybeDemoModel = MaybeDemoModel Nothing ""
         }
 
 
@@ -59,6 +60,9 @@ update msg model =
 
         Noop ->
             ( model, Cmd.none )
+
+        MaybeDemoUpdateNum n ->
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe) "" }, Cmd.none )
 
 
 getProgressPercentage : Route -> Float

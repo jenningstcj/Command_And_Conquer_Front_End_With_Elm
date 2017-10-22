@@ -13,26 +13,29 @@ type Route
     = Home
     | About
     | Overview
-    | WhyElm1_1
-    | WhyElm1_2
-    | WhyElm1_3
-    | WhyElm1_4
-    | WhyElm1_5
+    | Why_Elm_1
+    | Why_Elm_2
+    | Why_Elm_3
+    | Why_Elm_4
+    | Why_Elm_5
     | Speed
-    | ErrorMessages
-    | SemanticVersioning
-    | Currying1
-    | Currying2
-    | Currying3
-    | Currying4
-    | Currying5
-    | Currying6
-    | Currying7
-    | AdvancedCurrying1
-    | AdvancedCurrying2
-    | AdvancedCurrying3
-    | AdvancedCurrying4
-    | AdvancedCurrying5
+    | Error_Messages
+    | Semantic_Versioning
+    | Currying_1
+    | Currying_2
+    | Currying_3
+    | Currying_4
+    | Currying_5
+    | Currying_6
+    | Currying_7
+    | Advanced_Currying_1
+    | Advanced_Currying_2
+    | Advanced_Currying_3
+    | Advanced_Currying_4
+    | Advanced_Currying_5
+    | Maybe_1
+    | Maybe_2
+    | Maybe_3
 
 
 
@@ -41,7 +44,7 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "WhyElm1_1", "WhyElm1_2", "WhyElm1_3", "WhyElm1_4", "WhyElm1_5", "Speed", "ErrorMessages", "SemanticVersioning", "Currying1", "Currying2", "Currying3", "Currying4", "Currying5", "Currying6", "Currying7", "AdvancedCurrying1", "AdvancedCurrying2", "AdvancedCurrying3", "AdvancedCurrying4", "AdvancedCurrying5" ]
+    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Speed", "Error_Messages", "Semantic_Versioning", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3" ]
 
 
 
@@ -60,65 +63,74 @@ stringToRoute str =
         "Overview" ->
             Overview
 
-        "WhyElm1_1" ->
-            WhyElm1_1
+        "Why_Elm_1" ->
+            Why_Elm_1
 
-        "WhyElm1_2" ->
-            WhyElm1_2
+        "Why_Elm_2" ->
+            Why_Elm_2
 
-        "WhyElm1_3" ->
-            WhyElm1_3
+        "Why_Elm_3" ->
+            Why_Elm_3
 
-        "WhyElm1_4" ->
-            WhyElm1_4
+        "Why_Elm_4" ->
+            Why_Elm_4
 
-        "WhyElm1_5" ->
-            WhyElm1_5
+        "Why_Elm_5" ->
+            Why_Elm_5
 
         "Speed" ->
             Speed
 
-        "ErrorMessages" ->
-            ErrorMessages
+        "Error_Messages" ->
+            Error_Messages
 
-        "SemanticVersioning" ->
-            SemanticVersioning
+        "Semantic_Versioning" ->
+            Semantic_Versioning
 
-        "Currying1" ->
-            Currying1
+        "Currying_1" ->
+            Currying_1
 
-        "Currying2" ->
-            Currying2
+        "Currying_2" ->
+            Currying_2
 
-        "Currying3" ->
-            Currying3
+        "Currying_3" ->
+            Currying_3
 
-        "Currying4" ->
-            Currying4
+        "Currying_4" ->
+            Currying_4
 
-        "Currying5" ->
-            Currying5
+        "Currying_5" ->
+            Currying_5
 
-        "Currying6" ->
-            Currying6
+        "Currying_6" ->
+            Currying_6
 
-        "Currying7" ->
-            Currying7
+        "Currying_7" ->
+            Currying_7
 
-        "AdvancedCurrying1" ->
-            AdvancedCurrying1
+        "Advanced_Currying_1" ->
+            Advanced_Currying_1
 
-        "AdvancedCurrying2" ->
-            AdvancedCurrying2
+        "Advanced_Currying_2" ->
+            Advanced_Currying_2
 
-        "AdvancedCurrying3" ->
-            AdvancedCurrying3
+        "Advanced_Currying_3" ->
+            Advanced_Currying_3
 
-        "AdvancedCurrying4" ->
-            AdvancedCurrying4
+        "Advanced_Currying_4" ->
+            Advanced_Currying_4
 
-        "AdvancedCurrying5" ->
-            AdvancedCurrying5
+        "Advanced_Currying_5" ->
+            Advanced_Currying_5
+
+        "Maybe_1" ->
+            Maybe_1
+
+        "Maybe_2" ->
+            Maybe_2
+
+        "Maybe_3" ->
+            Maybe_3
 
         _ ->
             Home
@@ -130,26 +142,29 @@ route =
         [ Url.map Home (s "")
         , Url.map About (s "about")
         , Url.map Overview (s "overview")
-        , Url.map WhyElm1_1 (s "whyelm1_1")
-        , Url.map WhyElm1_2 (s "whyelm1_2")
-        , Url.map WhyElm1_3 (s "whyelm1_3")
-        , Url.map WhyElm1_4 (s "whyelm1_4")
-        , Url.map WhyElm1_5 (s "whyelm1_5")
+        , Url.map Why_Elm_1 (s "why_elm_1")
+        , Url.map Why_Elm_2 (s "why_elm_2")
+        , Url.map Why_Elm_3 (s "why_elm_3")
+        , Url.map Why_Elm_4 (s "why_elm_4")
+        , Url.map Why_Elm_5 (s "why_elm_5")
         , Url.map Speed (s "speed")
-        , Url.map ErrorMessages (s "errormessages")
-        , Url.map SemanticVersioning (s "semanticversioning")
-        , Url.map Currying1 (s "currying1")
-        , Url.map Currying2 (s "currying2")
-        , Url.map Currying3 (s "currying3")
-        , Url.map Currying4 (s "currying4")
-        , Url.map Currying5 (s "currying5")
-        , Url.map Currying6 (s "currying6")
-        , Url.map Currying7 (s "currying7")
-        , Url.map AdvancedCurrying1 (s "advancedcurrying1")
-        , Url.map AdvancedCurrying2 (s "advancedcurrying2")
-        , Url.map AdvancedCurrying3 (s "advancedcurrying3")
-        , Url.map AdvancedCurrying4 (s "advancedcurrying4")
-        , Url.map AdvancedCurrying5 (s "advancedcurrying5")
+        , Url.map Error_Messages (s "error_messages")
+        , Url.map Semantic_Versioning (s "semantic_versioning")
+        , Url.map Currying_1 (s "currying_1")
+        , Url.map Currying_2 (s "currying_2")
+        , Url.map Currying_3 (s "currying_3")
+        , Url.map Currying_4 (s "currying_4")
+        , Url.map Currying_5 (s "currying_5")
+        , Url.map Currying_6 (s "currying_6")
+        , Url.map Currying_7 (s "currying_7")
+        , Url.map Advanced_Currying_1 (s "advanced_currying_1")
+        , Url.map Advanced_Currying_2 (s "advanced_currying_2")
+        , Url.map Advanced_Currying_3 (s "advanced_currying_3")
+        , Url.map Advanced_Currying_4 (s "advanced_currying_4")
+        , Url.map Advanced_Currying_5 (s "advanced_currying_5")
+        , Url.map Maybe_1 (s "maybe_1")
+        , Url.map Maybe_2 (s "maybe_2")
+        , Url.map Maybe_3 (s "maybe_3")
         ]
 
 
@@ -159,79 +174,7 @@ route =
 
 routeToString : Route -> String
 routeToString page =
-    let
-        pieces =
-            case page of
-                Home ->
-                    []
-
-                About ->
-                    [ "about" ]
-
-                Overview ->
-                    [ "overview" ]
-
-                WhyElm1_1 ->
-                    [ "whyelm1_1" ]
-
-                WhyElm1_2 ->
-                    [ "whyelm1_2" ]
-
-                WhyElm1_3 ->
-                    [ "whyelm1_3" ]
-
-                WhyElm1_4 ->
-                    [ "whyelm1_4" ]
-
-                WhyElm1_5 ->
-                    [ "whyelm1_5" ]
-
-                Speed ->
-                    [ "speed" ]
-
-                ErrorMessages ->
-                    [ "errormessages" ]
-
-                SemanticVersioning ->
-                    [ "semanticversioning" ]
-
-                Currying1 ->
-                    [ "currying1" ]
-
-                Currying2 ->
-                    [ "currying2" ]
-
-                Currying3 ->
-                    [ "currying3" ]
-
-                Currying4 ->
-                    [ "currying4" ]
-
-                Currying5 ->
-                    [ "currying5" ]
-
-                Currying6 ->
-                    [ "currying6" ]
-
-                Currying7 ->
-                    [ "currying7" ]
-
-                AdvancedCurrying1 ->
-                    [ "advancedcurrying1" ]
-
-                AdvancedCurrying2 ->
-                    [ "advancedcurrying2" ]
-
-                AdvancedCurrying3 ->
-                    [ "advancedcurrying3" ]
-
-                AdvancedCurrying4 ->
-                    [ "advancedcurrying4" ]
-
-                AdvancedCurrying5 ->
-                    [ "advancedcurrying5" ]
-    in
-        "#/" ++ String.join "/" pieces
+    "#/" ++ String.join "/" [ (toString page |> String.toLower) ]
 
 
 

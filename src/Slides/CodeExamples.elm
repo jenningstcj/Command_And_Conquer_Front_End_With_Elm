@@ -70,3 +70,35 @@ getEvenNumbers = List.filter isEven
 getEvenNumbers [1,2,3,4]  -- outputs [2,4]
 
 """
+
+
+maybeExample1 : String
+maybeExample1 =
+    """type Maybe a
+    = Just a
+    | Nothing
+
+
+type alias Customer =
+    { name : String
+    , address : Maybe Address
+    }
+
+case model.address of
+    Just a -> a
+    Nothing -> --return new address object with empty fields
+"""
+
+
+maybeExample2 : String
+maybeExample2 =
+    """getFirst: List Int -> Int
+getFirst l =
+    case List.head l of
+        Just a -> a
+        Nothing -> 0
+
+getFirst [1,2,3] --returns 1
+
+getFirst [] --returns 0
+"""
