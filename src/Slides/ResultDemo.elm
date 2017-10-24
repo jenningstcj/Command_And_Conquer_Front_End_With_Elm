@@ -1,4 +1,4 @@
-module Slides.MaybeDemo exposing (view)
+module Slides.ResultDemo exposing (view)
 
 import Html exposing (..)
 import Html.Attributes exposing (style, defaultValue)
@@ -7,16 +7,22 @@ import Msgs exposing (Msg)
 import Models exposing (..)
 import Styles exposing (centerStyle, titleSize2, mainFontSize2, hide, fadeFont)
 import SyntaxHighlight exposing (useTheme, monokai, elm, toBlockHtml, highlightLines, Highlight(..), HCode)
+import Date exposing (..)
 
 
-view : MaybeDemoModel -> Html Msg
+view : ResultDemoModel -> Html Msg
 view model =
     let
         result =
-            unwrapNumber model.num
+            case model.date of
+                Ok val ->
+                    dateToString val
+
+                Err error ->
+                    error
     in
         div []
-            [ h1 [ centerStyle, titleSize2 ] [ text "Maybe Demo" ]
+            [ h1 [ centerStyle, titleSize2 ] [ text "Result Demo" ]
             , div [ mainFontSize2 ]
                 [ useTheme monokai
                 , elm exampleCode
@@ -25,8 +31,8 @@ view model =
                         (pre [] [ code [] [ text exampleCode ] ])
                 ]
             , div [ mainFontSize2, centerStyle ]
-                [ label [] [ text "Type in a Number: " ]
-                , input [ style [ ( "fontSize", "1.2em" ) ], onInput Msgs.MaybeDemoUpdateNum, defaultValue "0" ] []
+                [ label [] [ text "Type in a Date:" ]
+                , input [ style [ ( "fontSize", "1.5em" ) ], onInput Msgs.ResultDemoUpdateDate, defaultValue "2018-1-12" ] []
                 , p [] [ text result ]
                 ]
             ]
@@ -34,21 +40,20 @@ view model =
 
 exampleCode : String
 exampleCode =
-    """unwrapNumber : Maybe Int -> String
-unwrapNumber num =
-    case num of
-        Just a ->
-            toString a
-        Nothing ->
-            "Sorry, not a valid number."
+    """Date.fromString : String -> Result String Date
 """
 
 
-unwrapNumber : Maybe Int -> String
-unwrapNumber num =
-    case num of
-        Just a ->
-            toString a
+dateToString : Date -> String
+dateToString d =
+    let
+        month =
+            Date.month d |> toString
 
-        Nothing ->
-            "Sorry, not a valid number."
+        day =
+            Date.day d |> toString
+
+        year =
+            Date.year d |> toString
+    in
+        month ++ " " ++ day ++ " " ++ year

@@ -1,6 +1,7 @@
 module Models exposing (..)
 
 import Route exposing (Route)
+import Date
 
 
 -- MODEL --
@@ -11,10 +12,15 @@ type alias Model =
     , showMenu : Bool
     , progressPercentage : Float
     , maybeDemoModel : MaybeDemoModel
+    , resultDemoModel : ResultDemoModel
     }
 
 
 type alias MaybeDemoModel =
     { num : Maybe Int
-    , result : String
+    }
+
+
+type alias ResultDemoModel =
+    { date : Result String Date.Date
     }

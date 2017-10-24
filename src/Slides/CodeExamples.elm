@@ -78,7 +78,6 @@ maybeExample1 =
     = Just a
     | Nothing
 
-
 type alias Customer =
     { name : String
     , address : Maybe Address
@@ -86,7 +85,7 @@ type alias Customer =
 
 case model.address of
     Just a -> a
-    Nothing -> --return new address object with empty fields
+    Nothing -> Address "" "" "" "" ""
 """
 
 

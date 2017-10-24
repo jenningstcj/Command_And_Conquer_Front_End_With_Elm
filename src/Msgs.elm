@@ -10,3 +10,4 @@ type Msg
     | ToggleMenu
     | Noop
     | MaybeDemoUpdateNum String
+    | ResultDemoUpdateDate String

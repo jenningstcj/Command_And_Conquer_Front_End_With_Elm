@@ -15,6 +15,7 @@ import Slides.WhyElm1 as WhyElm1
 import Slides.TitleAndImage as TitleAndImage
 import Slides.CodeExamples as CodeExamples
 import Slides.MaybeDemo as MaybeDemo
+import Slides.ResultDemo as ResultDemo
 
 
 -- VIEW --
@@ -102,6 +103,9 @@ view model =
 
                 Route.Maybe_3 ->
                     MaybeDemo.view model.maybeDemoModel
+
+                Route.Result_Demo ->
+                    ResultDemo.view model.resultDemoModel
 
         progressBar =
             progressView model

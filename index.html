@@ -2723,7 +2723,39 @@ var _elm_lang$core$Char$isHexDigit = function ($char) {
 		_elm_lang$core$Native_Utils.chr('F'),
 		$char));
 };
-//import Native.Utils //
+//import Result //
+
+var _elm_lang$core$Native_Date = function() {
+
+function fromString(str)
+{
+	var date = new Date(str);
+	return isNaN(date.getTime())
+		? _elm_lang$core$Result$Err('Unable to parse \'' + str + '\' as a date. Dates must be in the ISO 8601 format.')
+		: _elm_lang$core$Result$Ok(date);
+}
+
+var dayTable = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+var monthTable =
+	['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
+return {
+	fromString: fromString,
+	year: function(d) { return d.getFullYear(); },
+	month: function(d) { return { ctor: monthTable[d.getMonth()] }; },
+	day: function(d) { return d.getDate(); },
+	hour: function(d) { return d.getHours(); },
+	minute: function(d) { return d.getMinutes(); },
+	second: function(d) { return d.getSeconds(); },
+	millisecond: function(d) { return d.getMilliseconds(); },
+	toTime: function(d) { return d.getTime(); },
+	fromTime: function(t) { return new Date(t); },
+	dayOfWeek: function(d) { return { ctor: dayTable[d.getDay()] }; }
+};
+
+}();//import Native.Utils //
 
 var _elm_lang$core$Native_Scheduler = function() {
 
@@ -5467,6 +5499,38 @@ var _elm_lang$core$Time$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Time'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Time$init, onEffects: _elm_lang$core$Time$onEffects, onSelfMsg: _elm_lang$core$Time$onSelfMsg, tag: 'sub', subMap: _elm_lang$core$Time$subMap};
+var _elm_lang$core$Date$millisecond = _elm_lang$core$Native_Date.millisecond;
+var _elm_lang$core$Date$second = _elm_lang$core$Native_Date.second;
+var _elm_lang$core$Date$minute = _elm_lang$core$Native_Date.minute;
+var _elm_lang$core$Date$hour = _elm_lang$core$Native_Date.hour;
+var _elm_lang$core$Date$dayOfWeek = _elm_lang$core$Native_Date.dayOfWeek;
+var _elm_lang$core$Date$day = _elm_lang$core$Native_Date.day;
+var _elm_lang$core$Date$month = _elm_lang$core$Native_Date.month;
+var _elm_lang$core$Date$year = _elm_lang$core$Native_Date.year;
+var _elm_lang$core$Date$fromTime = _elm_lang$core$Native_Date.fromTime;
+var _elm_lang$core$Date$toTime = _elm_lang$core$Native_Date.toTime;
+var _elm_lang$core$Date$fromString = _elm_lang$core$Native_Date.fromString;
+var _elm_lang$core$Date$now = A2(_elm_lang$core$Task$map, _elm_lang$core$Date$fromTime, _elm_lang$core$Time$now);
+var _elm_lang$core$Date$Date = {ctor: 'Date'};
+var _elm_lang$core$Date$Sun = {ctor: 'Sun'};
+var _elm_lang$core$Date$Sat = {ctor: 'Sat'};
+var _elm_lang$core$Date$Fri = {ctor: 'Fri'};
+var _elm_lang$core$Date$Thu = {ctor: 'Thu'};
+var _elm_lang$core$Date$Wed = {ctor: 'Wed'};
+var _elm_lang$core$Date$Tue = {ctor: 'Tue'};
+var _elm_lang$core$Date$Mon = {ctor: 'Mon'};
+var _elm_lang$core$Date$Dec = {ctor: 'Dec'};
+var _elm_lang$core$Date$Nov = {ctor: 'Nov'};
+var _elm_lang$core$Date$Oct = {ctor: 'Oct'};
+var _elm_lang$core$Date$Sep = {ctor: 'Sep'};
+var _elm_lang$core$Date$Aug = {ctor: 'Aug'};
+var _elm_lang$core$Date$Jul = {ctor: 'Jul'};
+var _elm_lang$core$Date$Jun = {ctor: 'Jun'};
+var _elm_lang$core$Date$May = {ctor: 'May'};
+var _elm_lang$core$Date$Apr = {ctor: 'Apr'};
+var _elm_lang$core$Date$Mar = {ctor: 'Mar'};
+var _elm_lang$core$Date$Feb = {ctor: 'Feb'};
+var _elm_lang$core$Date$Jan = {ctor: 'Jan'};
 var _elm_lang$core$Debug$crash = _elm_lang$core$Native_Debug.crash;
 var _elm_lang$core$Debug$log = _elm_lang$core$Native_Debug.log;
 //import Maybe, Native.Array, Native.List, Native.Utils, Result //
@@ -16836,7 +16900,11 @@ var _user$project$Route$routeList = {
 																									_1: {
 																										ctor: '::',
 																										_0: 'Maybe_3',
-																										_1: {ctor: '[]'}
+																										_1: {
+																											ctor: '::',
+																											_0: 'Result_Demo',
+																											_1: {ctor: '[]'}
+																										}
 																									}
 																								}
 																							}
@@ -16863,6 +16931,7 @@ var _user$project$Route$routeList = {
 		}
 	}
 };
+var _user$project$Route$Result_Demo = {ctor: 'Result_Demo'};
 var _user$project$Route$Maybe_3 = {ctor: 'Maybe_3'};
 var _user$project$Route$Maybe_2 = {ctor: 'Maybe_2'};
 var _user$project$Route$Maybe_1 = {ctor: 'Maybe_1'};
@@ -16944,6 +17013,8 @@ var _user$project$Route$stringToRoute = function (str) {
 			return _user$project$Route$Maybe_2;
 		case 'Maybe_3':
 			return _user$project$Route$Maybe_3;
+		case 'Result_Demo':
+			return _user$project$Route$Result_Demo;
 		default:
 			return _user$project$Route$Home;
 	}
@@ -17105,7 +17176,14 @@ var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
 																												_evancz$url_parser$UrlParser$map,
 																												_user$project$Route$Maybe_3,
 																												_evancz$url_parser$UrlParser$s('maybe_3')),
-																											_1: {ctor: '[]'}
+																											_1: {
+																												ctor: '::',
+																												_0: A2(
+																													_evancz$url_parser$UrlParser$map,
+																													_user$project$Route$Result_Demo,
+																													_evancz$url_parser$UrlParser$s('result_demo')),
+																												_1: {ctor: '[]'}
+																											}
 																										}
 																									}
 																								}
@@ -17135,6 +17213,9 @@ var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
 var _user$project$Route$fromLocation = function (location) {
 	return _elm_lang$core$String$isEmpty(location.hash) ? _elm_lang$core$Maybe$Just(_user$project$Route$Home) : A2(_evancz$url_parser$UrlParser$parseHash, _user$project$Route$route, location);
 };
+var _user$project$Msgs$ResultDemoUpdateDate = function (a) {
+	return {ctor: 'ResultDemoUpdateDate', _0: a};
+};
 var _user$project$Msgs$MaybeDemoUpdateNum = function (a) {
 	return {ctor: 'MaybeDemoUpdateNum', _0: a};
 };
@@ -17145,14 +17226,16 @@ var _user$project$Msgs$Next = {ctor: 'Next'};
 var _user$project$Msgs$SetRoute = function (a) {
 	return {ctor: 'SetRoute', _0: a};
 };
-var _user$project$Models$Model = F4(
-	function (a, b, c, d) {
-		return {route: a, showMenu: b, progressPercentage: c, maybeDemoModel: d};
+var _user$project$Models$Model = F5(
+	function (a, b, c, d, e) {
+		return {route: a, showMenu: b, progressPercentage: c, maybeDemoModel: d, resultDemoModel: e};
 	});
-var _user$project$Models$MaybeDemoModel = F2(
-	function (a, b) {
-		return {num: a, result: b};
-	});
+var _user$project$Models$MaybeDemoModel = function (a) {
+	return {num: a};
+};
+var _user$project$Models$ResultDemoModel = function (a) {
+	return {date: a};
+};
 var _user$project$Styles$setHeight = function (perc) {
 	return _elm_lang$html$Html_Attributes$style(
 		{
@@ -18008,7 +18091,7 @@ var _user$project$Slides_TitleAndImage$view = F3(
 			});
 	});
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
-var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> --return new address object with empty fields\n';
+var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
 var _user$project$Slides_CodeExamples$mapExample = 'map : (a -> b) -> List a -> List b\nfilter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers : List Int -> List Int\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample2 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n\nadd5 = add 5\n\nadd5 : Int -> Int\nadd5 num2 =\n    5 + num2\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample1 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n';
@@ -18099,7 +18182,7 @@ var _user$project$Slides_MaybeDemo$unwrapNumber = function (num) {
 		return 'Sorry, not a valid number.';
 	}
 };
-var _user$project$Slides_MaybeDemo$exampleCode = 'unwrapNumber : Maybe Int -> String\nunwrapNumber num =\n    case num of\n        Just a ->\n            a\n\n        Nothing ->\n            \"Sorry, no valid number.\"\n';
+var _user$project$Slides_MaybeDemo$exampleCode = 'unwrapNumber : Maybe Int -> String\nunwrapNumber num =\n    case num of\n        Just a ->\n            toString a\n        Nothing ->\n            \"Sorry, not a valid number.\"\n';
 var _user$project$Slides_MaybeDemo$view = function (model) {
 	var result = _user$project$Slides_MaybeDemo$unwrapNumber(model.num);
 	return A2(
@@ -18130,36 +18213,35 @@ var _user$project$Slides_MaybeDemo$view = function (model) {
 					{
 						ctor: '::',
 						_0: _user$project$Styles$mainFontSize2,
-						_1: {
-							ctor: '::',
-							_0: _user$project$Styles$centerStyle,
-							_1: {ctor: '[]'}
-						}
+						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$input,
-							{
-								ctor: '::',
-								_0: _user$project$Styles$mainFontSize2,
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$MaybeDemoUpdateNum),
-									_1: {ctor: '[]'}
-								}
-							},
-							{ctor: '[]'}),
+						_0: _pablohirafuji$elm_syntax_highlight$SyntaxHighlight$useTheme(_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$monokai),
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$p,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text(result),
-									_1: {ctor: '[]'}
-								}),
+								_elm_lang$core$Result$withDefault,
+								A2(
+									_elm_lang$html$Html$pre,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$code,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(_user$project$Slides_MaybeDemo$exampleCode),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}),
+								A2(
+									_elm_lang$core$Result$map,
+									_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toBlockHtml(
+										_elm_lang$core$Maybe$Just(1)),
+									_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(_user$project$Slides_MaybeDemo$exampleCode))),
 							_1: {ctor: '[]'}
 						}
 					}),
@@ -18170,36 +18252,210 @@ var _user$project$Slides_MaybeDemo$view = function (model) {
 						{
 							ctor: '::',
 							_0: _user$project$Styles$mainFontSize2,
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _user$project$Styles$centerStyle,
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
-							_0: _pablohirafuji$elm_syntax_highlight$SyntaxHighlight$useTheme(_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$monokai),
+							_0: A2(
+								_elm_lang$html$Html$label,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Type in a Number: '),
+									_1: {ctor: '[]'}
+								}),
 							_1: {
 								ctor: '::',
 								_0: A2(
-									_elm_lang$core$Result$withDefault,
-									A2(
-										_elm_lang$html$Html$pre,
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(
+											{
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.2em'},
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$MaybeDemoUpdateNum),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$defaultValue('0'),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$p,
 										{ctor: '[]'},
 										{
 											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$code,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text(_user$project$Slides_MaybeDemo$exampleCode),
-													_1: {ctor: '[]'}
-												}),
+											_0: _elm_lang$html$Html$text(result),
 											_1: {ctor: '[]'}
 										}),
-									A2(
-										_elm_lang$core$Result$map,
-										_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toBlockHtml(
-											_elm_lang$core$Maybe$Just(1)),
-										_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(_user$project$Slides_MaybeDemo$exampleCode))),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Slides_ResultDemo$dateToString = function (d) {
+	var year = _elm_lang$core$Basics$toString(
+		_elm_lang$core$Date$year(d));
+	var day = _elm_lang$core$Basics$toString(
+		_elm_lang$core$Date$day(d));
+	var month = _elm_lang$core$Basics$toString(
+		_elm_lang$core$Date$month(d));
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		month,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			' ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				day,
+				A2(_elm_lang$core$Basics_ops['++'], ' ', year))));
+};
+var _user$project$Slides_ResultDemo$exampleCode = 'Date.fromString : String -> Result String Date\n';
+var _user$project$Slides_ResultDemo$view = function (model) {
+	var result = function () {
+		var _p0 = model.date;
+		if (_p0.ctor === 'Ok') {
+			return _user$project$Slides_ResultDemo$dateToString(_p0._0);
+		} else {
+			return _p0._0;
+		}
+	}();
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{
+					ctor: '::',
+					_0: _user$project$Styles$centerStyle,
+					_1: {
+						ctor: '::',
+						_0: _user$project$Styles$titleSize2,
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Result Demo'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$Styles$mainFontSize2,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _pablohirafuji$elm_syntax_highlight$SyntaxHighlight$useTheme(_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$monokai),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$core$Result$withDefault,
+								A2(
+									_elm_lang$html$Html$pre,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$code,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(_user$project$Slides_ResultDemo$exampleCode),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}),
+								A2(
+									_elm_lang$core$Result$map,
+									_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toBlockHtml(
+										_elm_lang$core$Maybe$Just(1)),
+									_pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(_user$project$Slides_ResultDemo$exampleCode))),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _user$project$Styles$mainFontSize2,
+							_1: {
+								ctor: '::',
+								_0: _user$project$Styles$centerStyle,
 								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$label,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Type in a Date:'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(
+											{
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.5em'},
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$ResultDemoUpdateDate),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$defaultValue('2018-1-12'),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$p,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(result),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
 							}
 						}),
 					_1: {ctor: '[]'}
@@ -18490,8 +18746,10 @@ var _user$project$Views$view = function (model) {
 				return A4(_user$project$Slides_CodeExamples$view, 'Maybe', _user$project$Slides_CodeExamples$maybeExample1, 1, 1);
 			case 'Maybe_2':
 				return A4(_user$project$Slides_CodeExamples$view, 'Maybe', _user$project$Slides_CodeExamples$maybeExample2, 1, 1);
-			default:
+			case 'Maybe_3':
 				return _user$project$Slides_MaybeDemo$view(model.maybeDemoModel);
+			default:
+				return _user$project$Slides_ResultDemo$view(model.resultDemoModel);
 		}
 	}();
 	return A2(
@@ -18725,17 +18983,26 @@ var _user$project$Main$update = F2(
 				};
 			case 'Noop':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'MaybeDemoUpdateNum':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							maybeDemoModel: _user$project$Models$MaybeDemoModel(
+								_elm_lang$core$Result$toMaybe(
+									_elm_lang$core$String$toInt(_p8._0)))
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			default:
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
 						{
-							maybeDemoModel: A2(
-								_user$project$Models$MaybeDemoModel,
-								_elm_lang$core$Result$toMaybe(
-									_elm_lang$core$String$toInt(_p8._0)),
-								'')
+							resultDemoModel: _user$project$Models$ResultDemoModel(
+								_elm_lang$core$Date$fromString(_p8._0))
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
@@ -18750,7 +19017,10 @@ var _user$project$Main$init = F2(
 				route: _user$project$Route$Home,
 				showMenu: false,
 				progressPercentage: 0,
-				maybeDemoModel: A2(_user$project$Models$MaybeDemoModel, _elm_lang$core$Maybe$Nothing, '')
+				maybeDemoModel: _user$project$Models$MaybeDemoModel(
+					_elm_lang$core$Maybe$Just(0)),
+				resultDemoModel: _user$project$Models$ResultDemoModel(
+					_elm_lang$core$Date$fromString('2018-1-12'))
 			});
 	});
 var _user$project$Main$main = A2(
