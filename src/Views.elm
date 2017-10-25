@@ -96,16 +96,25 @@ view model =
                     CodeExamples.view "Currying" CodeExamples.mapExample 11 12
 
                 Route.Maybe_1 ->
-                    CodeExamples.view "Maybe" CodeExamples.maybeExample1 1 1
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 1 1
 
                 Route.Maybe_2 ->
-                    CodeExamples.view "Maybe" CodeExamples.maybeExample2 1 1
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 1 1
 
                 Route.Maybe_3 ->
                     MaybeDemo.view model.maybeDemoModel
 
+                Route.Result_Type ->
+                    CodeExamples.view "Result Type" CodeExamples.resultExample 1 1
+
                 Route.Result_Demo ->
                     ResultDemo.view model.resultDemoModel
+
+                Route.Commands_1 ->
+                    TitleAndImage.view "Cmd Msg vs Cmd msg" "" "80%"
+
+                Route.Commands_2 ->
+                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 1 1
 
         progressBar =
             progressView model

@@ -22,7 +22,7 @@ view model =
                     error
     in
         div []
-            [ h1 [ centerStyle, titleSize2 ] [ text "Result Demo" ]
+            [ h1 [ centerStyle, titleSize2 ] [ text "Result Type" ]
             , div [ mainFontSize2 ]
                 [ useTheme monokai
                 , elm exampleCode

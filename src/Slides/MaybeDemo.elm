@@ -16,7 +16,7 @@ view model =
             unwrapNumber model.num
     in
         div []
-            [ h1 [ centerStyle, titleSize2 ] [ text "Maybe Demo" ]
+            [ h1 [ centerStyle, titleSize2 ] [ text "Maybe Type" ]
             , div [ mainFontSize2 ]
                 [ useTheme monokai
                 , elm exampleCode

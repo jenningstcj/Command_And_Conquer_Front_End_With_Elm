@@ -36,7 +36,10 @@ type Route
     | Maybe_1
     | Maybe_2
     | Maybe_3
+    | Result_Type
     | Result_Demo
+    | Commands_1
+    | Commands_2
 
 
 
@@ -45,7 +48,7 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Speed", "Error_Messages", "Semantic_Versioning", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Result_Demo" ]
+    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Speed", "Error_Messages", "Semantic_Versioning", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Result_Type", "Result_Demo", "Commands_1", "Commands_2" ]
 
 
 
@@ -133,8 +136,17 @@ stringToRoute str =
         "Maybe_3" ->
             Maybe_3
 
+        "Result_Type" ->
+            Result_Type
+
         "Result_Demo" ->
             Result_Demo
+
+        "Commands_1" ->
+            Commands_1
+
+        "Commands_2" ->
+            Commands_2
 
         _ ->
             Home
@@ -169,7 +181,10 @@ route =
         , Url.map Maybe_1 (s "maybe_1")
         , Url.map Maybe_2 (s "maybe_2")
         , Url.map Maybe_3 (s "maybe_3")
+        , Url.map Result_Type (s "result_type")
         , Url.map Result_Demo (s "result_demo")
+        , Url.map Commands_1 (s "commands_1")
+        , Url.map Commands_2 (s "commands_2")
         ]
 
 

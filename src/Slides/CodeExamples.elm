@@ -101,3 +101,33 @@ getFirst [1,2,3] --returns 1
 
 getFirst [] --returns 0
 """
+
+
+resultExample : String
+resultExample =
+    """type Result error value
+    = Ok value
+    | Err error
+
+Http.send :
+  Cmd Msg -> String -> Cmd Msg (Result Http.error A)
+
+String.toInt : String -> Result String Int
+
+Date.fromString : String -> Result String Date
+"""
+
+
+commandExample1 : String
+commandExample1 =
+    """type Msg
+    = Action1 String
+    | Action2
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+       Action1 str -> ({model | prop = str}, Cmd.none )
+
+       Action2 -> ( model, Cmd.none )
+"""

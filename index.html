@@ -16902,8 +16902,20 @@ var _user$project$Route$routeList = {
 																										_0: 'Maybe_3',
 																										_1: {
 																											ctor: '::',
-																											_0: 'Result_Demo',
-																											_1: {ctor: '[]'}
+																											_0: 'Result_Type',
+																											_1: {
+																												ctor: '::',
+																												_0: 'Result_Demo',
+																												_1: {
+																													ctor: '::',
+																													_0: 'Commands_1',
+																													_1: {
+																														ctor: '::',
+																														_0: 'Commands_2',
+																														_1: {ctor: '[]'}
+																													}
+																												}
+																											}
 																										}
 																									}
 																								}
@@ -16931,7 +16943,10 @@ var _user$project$Route$routeList = {
 		}
 	}
 };
+var _user$project$Route$Commands_2 = {ctor: 'Commands_2'};
+var _user$project$Route$Commands_1 = {ctor: 'Commands_1'};
 var _user$project$Route$Result_Demo = {ctor: 'Result_Demo'};
+var _user$project$Route$Result_Type = {ctor: 'Result_Type'};
 var _user$project$Route$Maybe_3 = {ctor: 'Maybe_3'};
 var _user$project$Route$Maybe_2 = {ctor: 'Maybe_2'};
 var _user$project$Route$Maybe_1 = {ctor: 'Maybe_1'};
@@ -17013,8 +17028,14 @@ var _user$project$Route$stringToRoute = function (str) {
 			return _user$project$Route$Maybe_2;
 		case 'Maybe_3':
 			return _user$project$Route$Maybe_3;
+		case 'Result_Type':
+			return _user$project$Route$Result_Type;
 		case 'Result_Demo':
 			return _user$project$Route$Result_Demo;
+		case 'Commands_1':
+			return _user$project$Route$Commands_1;
+		case 'Commands_2':
+			return _user$project$Route$Commands_2;
 		default:
 			return _user$project$Route$Home;
 	}
@@ -17180,9 +17201,30 @@ var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
 																												ctor: '::',
 																												_0: A2(
 																													_evancz$url_parser$UrlParser$map,
-																													_user$project$Route$Result_Demo,
-																													_evancz$url_parser$UrlParser$s('result_demo')),
-																												_1: {ctor: '[]'}
+																													_user$project$Route$Result_Type,
+																													_evancz$url_parser$UrlParser$s('result_type')),
+																												_1: {
+																													ctor: '::',
+																													_0: A2(
+																														_evancz$url_parser$UrlParser$map,
+																														_user$project$Route$Result_Demo,
+																														_evancz$url_parser$UrlParser$s('result_demo')),
+																													_1: {
+																														ctor: '::',
+																														_0: A2(
+																															_evancz$url_parser$UrlParser$map,
+																															_user$project$Route$Commands_1,
+																															_evancz$url_parser$UrlParser$s('commands_1')),
+																														_1: {
+																															ctor: '::',
+																															_0: A2(
+																																_evancz$url_parser$UrlParser$map,
+																																_user$project$Route$Commands_2,
+																																_evancz$url_parser$UrlParser$s('commands_2')),
+																															_1: {ctor: '[]'}
+																														}
+																													}
+																												}
 																											}
 																										}
 																									}
@@ -18090,6 +18132,8 @@ var _user$project$Slides_TitleAndImage$view = F3(
 				}
 			});
 	});
+var _user$project$Slides_CodeExamples$commandExample1 = 'type Msg\n    = Action1 String\n    | Action2\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n       Action1 str -> ({model | prop = str}, Cmd.none )\n\n       Action2 -> ( model, Cmd.none )\n';
+var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  Cmd Msg -> String -> Cmd Msg (Result Http.error A)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
 var _user$project$Slides_CodeExamples$mapExample = 'map : (a -> b) -> List a -> List b\nfilter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers : List Int -> List Int\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
@@ -18203,7 +18247,7 @@ var _user$project$Slides_MaybeDemo$view = function (model) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Maybe Demo'),
+					_0: _elm_lang$html$Html$text('Maybe Type'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -18356,7 +18400,7 @@ var _user$project$Slides_ResultDemo$view = function (model) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Result Demo'),
+					_0: _elm_lang$html$Html$text('Result Type'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -18743,13 +18787,19 @@ var _user$project$Views$view = function (model) {
 			case 'Advanced_Currying_5':
 				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 11, 12);
 			case 'Maybe_1':
-				return A4(_user$project$Slides_CodeExamples$view, 'Maybe', _user$project$Slides_CodeExamples$maybeExample1, 1, 1);
+				return A4(_user$project$Slides_CodeExamples$view, 'Maybe Type', _user$project$Slides_CodeExamples$maybeExample1, 1, 1);
 			case 'Maybe_2':
-				return A4(_user$project$Slides_CodeExamples$view, 'Maybe', _user$project$Slides_CodeExamples$maybeExample2, 1, 1);
+				return A4(_user$project$Slides_CodeExamples$view, 'Maybe Type', _user$project$Slides_CodeExamples$maybeExample2, 1, 1);
 			case 'Maybe_3':
 				return _user$project$Slides_MaybeDemo$view(model.maybeDemoModel);
-			default:
+			case 'Result_Type':
+				return A4(_user$project$Slides_CodeExamples$view, 'Result Type', _user$project$Slides_CodeExamples$resultExample, 1, 1);
+			case 'Result_Demo':
 				return _user$project$Slides_ResultDemo$view(model.resultDemoModel);
+			case 'Commands_1':
+				return A3(_user$project$Slides_TitleAndImage$view, 'Cmd Msg vs Cmd msg', '', '80%');
+			default:
+				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 1, 1);
 		}
 	}();
 	return A2(
