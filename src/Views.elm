@@ -16,6 +16,7 @@ import Slides.TitleAndImage as TitleAndImage
 import Slides.CodeExamples as CodeExamples
 import Slides.MaybeDemo as MaybeDemo
 import Slides.ResultDemo as ResultDemo
+import Slides.TitleMarkdownImage as TitleMarkdownImage
 
 
 -- VIEW --
@@ -102,7 +103,10 @@ view model =
                     CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 1 1
 
                 Route.Maybe_3 ->
-                    MaybeDemo.view model.maybeDemoModel
+                    MaybeDemo.view MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
+
+                Route.Maybe_4 ->
+                    MaybeDemo.view MaybeDemo.exampleCode2 model.maybeDemoModel Msgs.MaybeDemoUpdateNum2
 
                 Route.Result_Type ->
                     CodeExamples.view "Result Type" CodeExamples.resultExample 1 1
@@ -111,9 +115,12 @@ view model =
                     ResultDemo.view model.resultDemoModel
 
                 Route.Commands_1 ->
-                    TitleAndImage.view "Cmd Msg vs Cmd msg" "" "80%"
+                    TitleMarkdownImage.view "Commands" "# A Cmd lets you _do_ stuff."
 
                 Route.Commands_2 ->
+                    TitleAndImage.view "" "images/simple.gif" "80%"
+
+                Route.Commands_3 ->
                     CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 1 1
 
         progressBar =

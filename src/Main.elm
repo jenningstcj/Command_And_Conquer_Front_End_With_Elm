@@ -64,8 +64,11 @@ update msg model =
         Noop ->
             ( model, Cmd.none )
 
-        MaybeDemoUpdateNum n ->
+        MaybeDemoUpdateNum1 n ->
             ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe) }, Cmd.none )
+
+        MaybeDemoUpdateNum2 n ->
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe |> Maybe.map (\x -> x * 2)) }, Cmd.none )
 
         ResultDemoUpdateDate d ->
             ( { model | resultDemoModel = ResultDemoModel (d |> Date.fromString) }, Cmd.none )

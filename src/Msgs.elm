@@ -9,5 +9,6 @@ type Msg
     | Prev
     | ToggleMenu
     | Noop
-    | MaybeDemoUpdateNum String
+    | MaybeDemoUpdateNum1 String
+    | MaybeDemoUpdateNum2 String
     | ResultDemoUpdateDate String
