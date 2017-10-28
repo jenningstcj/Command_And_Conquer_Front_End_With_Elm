@@ -121,7 +121,16 @@ view model =
                     TitleAndImage.view "" "images/simple.gif" "80%"
 
                 Route.Commands_3 ->
+                    TitleAndImage.view "" "images/Commands.svg" "80%"
+
+                Route.Commands_4 ->
                     CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 1 1
+
+                Route.Elm_Architecture_1 ->
+                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 1 1
+
+                Route.Elm_Architecture_2 ->
+                    TitleAndImage.view "" "images/Elm_Architecture.svg" "80%"
 
         progressBar =
             progressView model

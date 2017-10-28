@@ -17056,7 +17056,19 @@ var _user$project$Route$routeList = {
 																															_1: {
 																																ctor: '::',
 																																_0: 'Commands_3',
-																																_1: {ctor: '[]'}
+																																_1: {
+																																	ctor: '::',
+																																	_0: 'Commands_4',
+																																	_1: {
+																																		ctor: '::',
+																																		_0: 'Elm_Architecture_1',
+																																		_1: {
+																																			ctor: '::',
+																																			_0: 'Elm_Architecture_2',
+																																			_1: {ctor: '[]'}
+																																		}
+																																	}
+																																}
 																															}
 																														}
 																													}
@@ -17089,6 +17101,9 @@ var _user$project$Route$routeList = {
 		}
 	}
 };
+var _user$project$Route$Elm_Architecture_2 = {ctor: 'Elm_Architecture_2'};
+var _user$project$Route$Elm_Architecture_1 = {ctor: 'Elm_Architecture_1'};
+var _user$project$Route$Commands_4 = {ctor: 'Commands_4'};
 var _user$project$Route$Commands_3 = {ctor: 'Commands_3'};
 var _user$project$Route$Commands_2 = {ctor: 'Commands_2'};
 var _user$project$Route$Commands_1 = {ctor: 'Commands_1'};
@@ -17188,6 +17203,12 @@ var _user$project$Route$stringToRoute = function (str) {
 			return _user$project$Route$Commands_2;
 		case 'Commands_3':
 			return _user$project$Route$Commands_3;
+		case 'Commands_4':
+			return _user$project$Route$Commands_4;
+		case 'Elm_Architecture_1':
+			return _user$project$Route$Elm_Architecture_1;
+		case 'Elm_Architecture_2':
+			return _user$project$Route$Elm_Architecture_2;
 		default:
 			return _user$project$Route$Home;
 	}
@@ -17385,7 +17406,28 @@ var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
 																																		_evancz$url_parser$UrlParser$map,
 																																		_user$project$Route$Commands_3,
 																																		_evancz$url_parser$UrlParser$s('commands_3')),
-																																	_1: {ctor: '[]'}
+																																	_1: {
+																																		ctor: '::',
+																																		_0: A2(
+																																			_evancz$url_parser$UrlParser$map,
+																																			_user$project$Route$Commands_4,
+																																			_evancz$url_parser$UrlParser$s('commands_4')),
+																																		_1: {
+																																			ctor: '::',
+																																			_0: A2(
+																																				_evancz$url_parser$UrlParser$map,
+																																				_user$project$Route$Elm_Architecture_1,
+																																				_evancz$url_parser$UrlParser$s('elm_architecture_1')),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A2(
+																																					_evancz$url_parser$UrlParser$map,
+																																					_user$project$Route$Elm_Architecture_2,
+																																					_evancz$url_parser$UrlParser$s('elm_architecture_2')),
+																																				_1: {ctor: '[]'}
+																																			}
+																																		}
+																																	}
 																																}
 																															}
 																														}
@@ -18035,7 +18077,7 @@ var _user$project$Slides_Overview$view = A2(
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('The Elm Architecture'),
+								_0: _elm_lang$html$Html$text('Functional Data Types'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
@@ -18049,7 +18091,7 @@ var _user$project$Slides_Overview$view = A2(
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Functional Data Types'),
+									_0: _elm_lang$html$Html$text('The Elm Architecture'),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -18301,8 +18343,9 @@ var _user$project$Slides_TitleAndImage$view = F3(
 				}
 			});
 	});
-var _user$project$Slides_CodeExamples$commandExample1 = 'type Msg\n    = Action1 String\n    | Action2\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n       Action1 str -> ({model | prop = str}, Cmd.none )\n\n       Action2 -> ( model, Cmd.none )\n';
-var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  Cmd Msg -> String -> Cmd Msg (Result Http.error A)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
+var _user$project$Slides_CodeExamples$elmArchitecture = 'Model -> Update -> View\n\ntype alias Model =\n    { ...\n    }\n\nmain = Html.program\n        { init = init\n        , view = view\n        , update = update\n        , subscriptions = subscriptions\n        }\n';
+var _user$project$Slides_CodeExamples$commandExample1 = 'type Msg\n    = HttpResult (Result Http.Error SomeData)\n    | Action2\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n       HttpResult (Ok data) ->\n         ({model | prop = data.prop}, Cmd.none )\n\n       HttpResult (Err e) -> ...\n';
+var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
 var _user$project$Slides_CodeExamples$mapExample = 'map : (a -> b) -> List a -> List b\nfilter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers : List Int -> List Int\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
@@ -19027,8 +19070,14 @@ var _user$project$Views$view = function (model) {
 				return A2(_user$project$Slides_TitleMarkdownImage$view, 'Commands', '# A Cmd lets you _do_ stuff.');
 			case 'Commands_2':
 				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/simple.gif', '80%');
-			default:
+			case 'Commands_3':
+				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/Commands.svg', '80%');
+			case 'Commands_4':
 				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 1, 1);
+			case 'Elm_Architecture_1':
+				return A4(_user$project$Slides_CodeExamples$view, 'The Elm Architecture', _user$project$Slides_CodeExamples$elmArchitecture, 1, 1);
+			default:
+				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/Elm_Architecture.svg', '80%');
 		}
 	}();
 	return A2(

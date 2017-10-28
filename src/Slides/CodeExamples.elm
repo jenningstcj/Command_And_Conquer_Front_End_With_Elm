@@ -110,7 +110,8 @@ resultExample =
     | Err error
 
 Http.send :
-  Cmd Msg -> String -> Cmd Msg (Result Http.error A)
+  (Result Error a -> msg) -> Request a -> Cmd Msg
+  -- Msg (Result Http.error a)
 
 String.toInt : String -> Result String Int
 
@@ -121,13 +122,31 @@ Date.fromString : String -> Result String Date
 commandExample1 : String
 commandExample1 =
     """type Msg
-    = Action1 String
+    = HttpResult (Result Http.Error SomeData)
     | Action2
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-       Action1 str -> ({model | prop = str}, Cmd.none )
+       HttpResult (Ok data) ->
+         ({model | prop = data.prop}, Cmd.none )
 
-       Action2 -> ( model, Cmd.none )
+       HttpResult (Err e) -> ...
+"""
+
+
+elmArchitecture : String
+elmArchitecture =
+    """Model -> Update -> View
+
+type alias Model =
+    { ...
+    }
+
+main = Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
 """
