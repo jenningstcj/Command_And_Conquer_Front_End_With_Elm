@@ -16,7 +16,7 @@ import Slides.TitleAndImage as TitleAndImage
 import Slides.CodeExamples as CodeExamples
 import Slides.MaybeDemo as MaybeDemo
 import Slides.ResultDemo as ResultDemo
-import Slides.TitleMarkdownImage as TitleMarkdownImage
+import Slides.TitleMarkdown as TitleMarkdown
 
 
 -- VIEW --
@@ -114,8 +114,13 @@ view model =
                 Route.Result_Demo ->
                     ResultDemo.view model.resultDemoModel
 
+                Route.Maybe_vs_Result ->
+                    TitleMarkdown.view "Maybe VS Result" """# A Maybe let's you handle a value that doesn't exist.
+
+# A Result let's you handle an error condition with an error message."""
+
                 Route.Commands_1 ->
-                    TitleMarkdownImage.view "Commands" "# A Cmd lets you _do_ stuff."
+                    TitleMarkdown.view "Commands" "# A Cmd lets you _do_ stuff."
 
                 Route.Commands_2 ->
                     TitleAndImage.view "" "images/simple.gif" "80%"
@@ -124,7 +129,7 @@ view model =
                     TitleAndImage.view "" "images/Commands.svg" "80%"
 
                 Route.Commands_4 ->
-                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 1 1
+                    CodeExamples.view "Msg" CodeExamples.commandExample1 1 1
 
                 Route.Elm_Architecture_1 ->
                     CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 1 1

@@ -1,4 +1,4 @@
-module Slides.TitleMarkdownImage exposing (view)
+module Slides.TitleMarkdown exposing (view)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, classList, href, id, placeholder, src, style)
@@ -16,5 +16,5 @@ view title para =
     div [ setHeight "100%" ]
         [ h1 [ centerStyle, titleSize2 ]
             [ text title ]
-        , (Markdown.toHtml [ style [ ( "top", "30%" ), ( "position", "relative" ) ], centerStyle ] para)
+        , (Markdown.toHtml [ style [ ( "top", "20%" ), ( "position", "relative" ) ], centerStyle ] para)
         ]

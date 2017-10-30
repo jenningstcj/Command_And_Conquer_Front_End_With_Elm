@@ -56,8 +56,8 @@ add5 num2 =
 
 mapExample : String
 mapExample =
-    """map : (a -> b) -> List a -> List b
-filter : (a -> Bool) -> List a -> List a
+    """List.map : (a -> b) -> List a -> List b
+List.filter : (a -> Bool) -> List a -> List a
 
 isEven : Int -> Bool
 isEven num = if num % 2 == 0 then True
