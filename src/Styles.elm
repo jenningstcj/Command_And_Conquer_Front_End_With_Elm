@@ -52,7 +52,8 @@ navMenuStyle model =
             , ( "left", "0" )
             , ( "backgroundColor", "#111" )
             , ( "overflowX", "hidden" )
-            , ( "paddingTop", "60px" )
+            , ( "paddingTop", "50px" )
+            , ( "paddingBottom", "50px" )
             , ( "transition", "0.5s" )
             ]
 

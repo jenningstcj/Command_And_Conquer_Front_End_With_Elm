@@ -37,15 +37,28 @@ type Route
     | Maybe_2
     | Maybe_3
     | Maybe_4
-    | Result_Type
+    | Maybe_5
+    | Maybe_6
+    | Maybe_7
+    | Maybe_8
+    | Result_Type_1
+    | Result_Type_2
+    | Result_Type_3
+    | Result_Type_4
     | Result_Demo
     | Maybe_vs_Result
     | Commands_1
     | Commands_2
     | Commands_3
     | Commands_4
+    | Commands_5
+    | Commands_6
+    | Commands_7
     | Elm_Architecture_1
     | Elm_Architecture_2
+    | Elm_Architecture_3
+    | Elm_Architecture_4
+    | Links
 
 
 
@@ -54,7 +67,7 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Speed", "Error_Messages", "Semantic_Versioning", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Maybe_4", "Result_Type", "Result_Demo", "Maybe_vs_Result", "Commands_1", "Commands_2", "Commands_3", "Commands_4", "Elm_Architecture_1", "Elm_Architecture_2" ]
+    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Speed", "Error_Messages", "Semantic_Versioning", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Maybe_4", "Maybe_5", "Maybe_6", "Maybe_7", "Maybe_8", "Result_Type_1", "Result_Type_2", "Result_Type_3", "Result_Type_4", "Result_Demo", "Maybe_vs_Result", "Commands_1", "Commands_2", "Commands_3", "Commands_4", "Commands_5", "Commands_6", "Commands_7", "Elm_Architecture_1", "Elm_Architecture_2", "Elm_Architecture_3", "Elm_Architecture_4", "Links" ]
 
 
 
@@ -145,8 +158,29 @@ stringToRoute str =
         "Maybe_4" ->
             Maybe_4
 
-        "Result_Type" ->
-            Result_Type
+        "Maybe_5" ->
+            Maybe_5
+
+        "Maybe_6" ->
+            Maybe_6
+
+        "Maybe_7" ->
+            Maybe_7
+
+        "Maybe_8" ->
+            Maybe_8
+
+        "Result_Type_1" ->
+            Result_Type_1
+
+        "Result_Type_2" ->
+            Result_Type_2
+
+        "Result_Type_3" ->
+            Result_Type_3
+
+        "Result_Type_4" ->
+            Result_Type_4
 
         "Result_Demo" ->
             Result_Demo
@@ -166,11 +200,29 @@ stringToRoute str =
         "Commands_4" ->
             Commands_4
 
+        "Commands_5" ->
+            Commands_5
+
+        "Commands_6" ->
+            Commands_6
+
+        "Commands_7" ->
+            Commands_7
+
         "Elm_Architecture_1" ->
             Elm_Architecture_1
 
         "Elm_Architecture_2" ->
             Elm_Architecture_2
+
+        "Elm_Architecture_3" ->
+            Elm_Architecture_3
+
+        "Elm_Architecture_4" ->
+            Elm_Architecture_4
+
+        "Links" ->
+            Links
 
         _ ->
             Home
@@ -206,15 +258,28 @@ route =
         , Url.map Maybe_2 (s "maybe_2")
         , Url.map Maybe_3 (s "maybe_3")
         , Url.map Maybe_4 (s "maybe_4")
-        , Url.map Result_Type (s "result_type")
+        , Url.map Maybe_5 (s "maybe_5")
+        , Url.map Maybe_6 (s "maybe_6")
+        , Url.map Maybe_7 (s "maybe_7")
+        , Url.map Maybe_8 (s "maybe_8")
+        , Url.map Result_Type_1 (s "result_type_1")
+        , Url.map Result_Type_2 (s "result_type_2")
+        , Url.map Result_Type_3 (s "result_type_3")
+        , Url.map Result_Type_4 (s "result_type_4")
         , Url.map Result_Demo (s "result_demo")
         , Url.map Maybe_vs_Result (s "maybe_vs_result")
         , Url.map Commands_1 (s "commands_1")
         , Url.map Commands_2 (s "commands_2")
         , Url.map Commands_3 (s "commands_3")
         , Url.map Commands_4 (s "commands_4")
+        , Url.map Commands_5 (s "commands_5")
+        , Url.map Commands_6 (s "commands_6")
+        , Url.map Commands_7 (s "commands_7")
         , Url.map Elm_Architecture_1 (s "elm_architecture_1")
         , Url.map Elm_Architecture_2 (s "elm_architecture_2")
+        , Url.map Elm_Architecture_3 (s "elm_architecture_3")
+        , Url.map Elm_Architecture_4 (s "elm_architecture_4")
+        , Url.map Links (s "links")
         ]
 
 

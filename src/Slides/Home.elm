@@ -23,7 +23,7 @@ type alias Model =
 
 view : Html Msg
 view =
-    div [ class "home-page", style [ ( "height", "100%" ) ] ]
+    div [ class "home-page", container ]
         [ h1 [ centerStyle, titleSize1 ] [ text "Command and Conquer the Front End with Elm" ]
         , div [ setImage "images/elm_logo.svg" ]
             []
@@ -46,4 +46,16 @@ setImage u =
         , ( "backgroundRepeat", "no-repeat" )
         , ( "backgroundPosition", "center" )
         , ( "height", "65%" )
+        , ( "width", "50%" )
+        ]
+
+
+container : Attribute Msg
+container =
+    style
+        [ ( "height", "100%" )
+        , ( "display", "flex" )
+        , ( "width", "100%" )
+        , ( "alignItems", "center" )
+        , ( "justifyContent", "center" )
         ]

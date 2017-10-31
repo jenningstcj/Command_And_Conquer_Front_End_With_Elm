@@ -97,30 +97,51 @@ view model =
                     CodeExamples.view "Currying" CodeExamples.mapExample 11 12
 
                 Route.Maybe_1 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 1 1
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
 
                 Route.Maybe_2 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 1 1
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 4 8
 
                 Route.Maybe_3 ->
-                    MaybeDemo.view MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 9 12
 
                 Route.Maybe_4 ->
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 0 5
+
+                Route.Maybe_5 ->
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 6 7
+
+                Route.Maybe_6 ->
+                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 8 9
+
+                Route.Maybe_7 ->
+                    MaybeDemo.view MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
+
+                Route.Maybe_8 ->
                     MaybeDemo.view MaybeDemo.exampleCode2 model.maybeDemoModel Msgs.MaybeDemoUpdateNum2
 
-                Route.Result_Type ->
-                    CodeExamples.view "Result Type" CodeExamples.resultExample 1 1
+                Route.Result_Type_1 ->
+                    CodeExamples.view "Result Type" CodeExamples.resultExample 0 3
+
+                Route.Result_Type_2 ->
+                    CodeExamples.view "Result Type" CodeExamples.resultExample 4 7
+
+                Route.Result_Type_3 ->
+                    CodeExamples.view "Result Type" CodeExamples.resultExample 8 9
+
+                Route.Result_Type_4 ->
+                    CodeExamples.view "Result Type" CodeExamples.resultExample 10 11
 
                 Route.Result_Demo ->
                     ResultDemo.view model.resultDemoModel
 
                 Route.Maybe_vs_Result ->
-                    TitleMarkdown.view "Maybe VS Result" """# A Maybe let's you handle a value that doesn't exist.
+                    TitleMarkdown.view "Maybe VS Result" """## A Maybe let's you handle a value that doesn't exist.
 
-# A Result let's you handle an error condition with an error message."""
+## A Result let's you handle an error condition with an error message."""
 
                 Route.Commands_1 ->
-                    TitleMarkdown.view "Commands" "# A Cmd lets you _do_ stuff."
+                    TitleMarkdown.view "Commands" "## A Cmd lets you _do_ stuff."
 
                 Route.Commands_2 ->
                     TitleAndImage.view "" "images/simple.gif" "80%"
@@ -129,13 +150,38 @@ view model =
                     TitleAndImage.view "" "images/Commands.svg" "80%"
 
                 Route.Commands_4 ->
-                    CodeExamples.view "Msg" CodeExamples.commandExample1 1 1
+                    CodeExamples.view "Msg" CodeExamples.commandExample1 0 3
+
+                Route.Commands_5 ->
+                    CodeExamples.view "Msg" CodeExamples.commandExample1 4 11
+
+                Route.Commands_6 ->
+                    CodeExamples.view "Msg" CodeExamples.commandExample1 6 11
+
+                Route.Commands_7 ->
+                    CodeExamples.view "Msg" CodeExamples.commandExample1 8 9
 
                 Route.Elm_Architecture_1 ->
-                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 1 1
+                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
 
                 Route.Elm_Architecture_2 ->
+                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 2 5
+
+                Route.Elm_Architecture_3 ->
+                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 6 12
+
+                Route.Elm_Architecture_4 ->
                     TitleAndImage.view "" "images/Elm_Architecture.svg" "80%"
+
+                Route.Links ->
+                    TitleMarkdown.view "Links" """[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)
+
+[http://elm-lang.org/](http://elm-lang.org/)
+
+[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)
+
+[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)
+                """
 
         progressBar =
             progressView model
