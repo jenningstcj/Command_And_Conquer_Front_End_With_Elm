@@ -171,13 +171,21 @@ subscriptions model =
 -- 37 left arrow key
 -- 39 right arrow key
 -- 77 m key
+--34  right arrow on presenter
+--33 left arrow on presenter
 
 
 keyPressDispatcher : Int -> Msg
 keyPressDispatcher keyCodeMap =
     case keyCodeMap of
+        33 ->
+            Prev
+
         37 ->
             Prev
+
+        34 ->
+            Next
 
         39 ->
             Next
