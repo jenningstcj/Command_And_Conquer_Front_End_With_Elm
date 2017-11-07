@@ -18479,14 +18479,16 @@ var _user$project$Slides_WhyElm1$init = function (num) {
 	var _p1 = num;
 	switch (_p1) {
 		case 1:
-			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
+			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
 		case 2:
-			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
+			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
 		case 3:
-			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
+			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
 		case 4:
-			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide);
+			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
 		case 5:
+			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide);
+		case 6:
 			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Fade, _user$project$Slides_WhyElm1$Show);
 		default:
 			return A5(_user$project$Slides_WhyElm1$Model, _user$project$Slides_WhyElm1$Show, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide, _user$project$Slides_WhyElm1$Hide);
@@ -18569,7 +18571,7 @@ var _user$project$Slides_CodeExamples$commandExample1 = 'type Msg\n    = HttpRes
 var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
-var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers : List Int -> List Int\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
+var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample2 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n\nadd5 = add 5\n\nadd5 : Int -> Int\nadd5 num2 =\n    5 + num2\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample1 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n';
 var _user$project$Slides_CodeExamples$linesToHighlight = F2(
@@ -18654,13 +18656,13 @@ var _user$project$Slides_CodeExamples$view = F4(
 var _user$project$Slides_MaybeDemo$unwrapNumber = function (num) {
 	var _p0 = num;
 	if (_p0.ctor === 'Just') {
-		return _elm_lang$core$Basics$toString(_p0._0);
+		return _p0._0;
 	} else {
-		return 'Sorry, not a valid number.';
+		return 0;
 	}
 };
 var _user$project$Slides_MaybeDemo$exampleCode2 = 'multiplyByTwo : Maybe Int -> Maybe Int\nmultiplyByTwo num =\n  num\n  |> Maybe.map (\\x -> x * 2)\n\n';
-var _user$project$Slides_MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> String\nunwrapNumber num =\n    case num of\n        Just a ->\n            toString a\n        Nothing ->\n            \"Sorry, not a valid number.\"\n';
+var _user$project$Slides_MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\nunwrapNumber num =\n    case num of\n        Just a -> a\n        Nothing -> 0\n';
 var _user$project$Slides_MaybeDemo$view = F3(
 	function (exampleCode, model, msg) {
 		var result = _user$project$Slides_MaybeDemo$unwrapNumber(model.num);
@@ -18777,7 +18779,8 @@ var _user$project$Slides_MaybeDemo$view = F3(
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text(result),
+												_0: _elm_lang$html$Html$text(
+													_elm_lang$core$Basics$toString(result)),
 												_1: {ctor: '[]'}
 											}),
 										_1: {ctor: '[]'}
@@ -19312,9 +19315,9 @@ var _user$project$Views$view = function (model) {
 			case 'Maybe_vs_Result':
 				return A2(_user$project$Slides_TitleMarkdown$view, 'Maybe VS Result', '## A Maybe let\'s you handle a value that doesn\'t exist.\n\n## A Result let\'s you handle an error condition with an error message.');
 			case 'Commands_1':
-				return A2(_user$project$Slides_TitleMarkdown$view, 'Commands', '## A Cmd lets you _do_ stuff.');
+				return A2(_user$project$Slides_TitleMarkdown$view, 'Commands', '');
 			case 'Commands_2':
-				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/simple.gif', '80%');
+				return A2(_user$project$Slides_TitleMarkdown$view, 'Commands', '## A Cmd lets you _do_ stuff.');
 			case 'Commands_3':
 				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/Commands.svg', '80%');
 			case 'Commands_4':
@@ -19392,8 +19395,12 @@ var _user$project$Views$view = function (model) {
 var _user$project$Main$keyPressDispatcher = function (keyCodeMap) {
 	var _p0 = keyCodeMap;
 	switch (_p0) {
+		case 33:
+			return _user$project$Msgs$Prev;
 		case 37:
 			return _user$project$Msgs$Prev;
+		case 34:
+			return _user$project$Msgs$Next;
 		case 39:
 			return _user$project$Msgs$Next;
 		case 77:
