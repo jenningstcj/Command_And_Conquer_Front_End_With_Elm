@@ -27,20 +27,18 @@ view exampleCode model msg =
             , div [ mainFontSize2, centerStyle ]
                 [ label [] [ text "Type in a Number: " ]
                 , input [ style [ ( "fontSize", "1.2em" ) ], onInput msg, defaultValue "0" ] []
-                , p [] [ text result ]
+                , p [] [ text (toString result) ]
                 ]
             ]
 
 
 exampleCode1 : String
 exampleCode1 =
-    """unwrapNumber : Maybe Int -> String
+    """unwrapNumber : Maybe Int -> Int
 unwrapNumber num =
     case num of
-        Just a ->
-            toString a
-        Nothing ->
-            "Sorry, not a valid number."
+        Just a -> a
+        Nothing -> 0
 """
 
 
@@ -54,11 +52,11 @@ multiplyByTwo num =
 """
 
 
-unwrapNumber : Maybe Int -> String
+unwrapNumber : Maybe Int -> Int
 unwrapNumber num =
     case num of
         Just a ->
-            toString a
+            a
 
         Nothing ->
-            "Sorry, not a valid number."
+            0

@@ -4,41 +4,10 @@ import Html exposing (Html, text, div, button, input, label, p, span)
 import Html.Events exposing (onInput, onClick)
 import Html.Attributes exposing (class, attribute, id, for, type_)
 import Date exposing (Date(..))
-import ValidatorFunctions exposing (requiredLength, applyValidation)
-
-
----- MODEL ----
-
-
-type alias Model =
-    { form : FormModel
-    , errors : ValidationModel
-    , validators : Validators
-    , year : Maybe Int
-    , day : Maybe Int
-    , month : Maybe Int
-    }
-
-
-type alias FormModel =
-    { firstName : String
-    , lastName : String
-    , dateOfBirth : Maybe Date
-    }
-
-
-type alias ValidationModel =
-    { firstName : Maybe String
-    , lastName : Maybe String
-    , dateOfBirth : Maybe String
-    }
-
-
-type alias Validators =
-    { firstName : List (String -> Result String String)
-    , lastName : List (String -> Result String String)
-    , dateOfBirth : List (Date -> Result String Date)
-    }
+import Models exposing (..)
+import Msgs exposing (Msg(..))
+import Helpers.ValidatorFunctions exposing (requiredLength, applyValidation)
+import Helpers.View exposing (viewData)
 
 
 init : ( Model, Cmd Msg )
@@ -48,22 +17,16 @@ init =
             FormModel "" "" Nothing
 
         errors =
-            ValidationModel Nothing Nothing Nothing
+            ErrorModel Nothing Nothing Nothing
 
         validators =
-            Validators [ (requiredLength 10) ] [] []
+            ValidationModel [ (requiredLength 10) ] [] []
     in
-        ( Model form errors validators Nothing Nothing Nothing, Cmd.none )
+        ( Model form errors validators, Cmd.none )
 
 
 
 ---- UPDATE ----
-
-
-type Msg
-    = UpdateFirstName String
-    | UpdateLastName String
-    | Submit
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -89,16 +52,28 @@ update msg model =
             in
                 ( { model | form = newForm }, Cmd.none )
 
+        UpdateDOB str ->
+            let
+                oldForm =
+                    model.form
+
+                newForm =
+                    { oldForm | dateOfBirth = Date.fromString str |> Result.toMaybe }
+            in
+                ( { model | form = newForm }, Cmd.none )
+
         Submit ->
             let
                 fresh =
-                    ValidationModel Nothing Nothing Nothing
+                    ErrorModel Nothing Nothing Nothing
 
                 errors =
-                    { fresh
-                        | firstName = applyValidation model.validators.firstName model.form.firstName
-                        , lastName = Nothing
-                    }
+                    Debug.log "errors"
+                        ({ fresh
+                            | firstName = applyValidation model.validators.firstName model.form.firstName
+                            , lastName = Nothing
+                         }
+                        )
 
                 allValid =
                     errors == fresh
@@ -125,6 +100,7 @@ view model =
     div [ class "mdl-grid" ]
         [ (inputGroup "First Name" UpdateFirstName model.errors.firstName)
         , (inputGroup "Last Name" UpdateLastName model.errors.lastName)
+        , (inputGroup "DOB" UpdateDOB model.errors.dateOfBirth)
         , div [ class "mdl-cell mdl-cell--12-col" ] [ button [ class "mdl-button mdl-js-button mdl-button--raised", onClick Submit ] [ text "Submit" ] ]
         , viewData model
         ]
@@ -150,24 +126,6 @@ inputGroup lbl msg err =
                 , label [ class "mdl-textfield__label", for groupId ] [ text lbl ]
                 , span [ class "mdl-textfield__error" ] [ text errorMessage ]
                 ]
-            ]
-
-
-viewData : Model -> Html Msg
-viewData model =
-    let
-        dob =
-            case model.form.dateOfBirth of
-                Just val ->
-                    (Date.month val |> toString) ++ " " ++ (Date.day val |> toString) ++ ", " ++ (Date.year val |> toString)
-
-                Nothing ->
-                    ""
-    in
-        div [ class "mdl-cell mdl-cell--12-col" ]
-            [ p [] [ text ("First Name: " ++ model.form.firstName) ]
-            , p [] [ text ("Last Name: " ++ model.form.lastName) ]
-            , p [] [ text ("DOB: " ++ dob) ]
             ]
 
 

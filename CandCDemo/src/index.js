@@ -1,6 +1,6 @@
-//import './main.css';
-import './material.min.css';
-import './material.min.js';
+import './main.css';
+import './mdl/material.min.css';
+import './mdl/material.min.js';
 
 import { Main } from './Main.elm';
 import registerServiceWorker from './registerServiceWorker';

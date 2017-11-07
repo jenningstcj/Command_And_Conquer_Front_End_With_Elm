@@ -1,4 +1,4 @@
-module ValidatorFunctions exposing (..)
+module Helpers.ValidatorFunctions exposing (..)
 
 
 applyValidation : List (String -> Result String a) -> String -> Maybe String

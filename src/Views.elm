@@ -141,10 +141,10 @@ view model =
 ## A Result let's you handle an error condition with an error message."""
 
                 Route.Commands_1 ->
-                    TitleMarkdown.view "Commands" "## A Cmd lets you _do_ stuff."
+                    TitleMarkdown.view "Commands" ""
 
                 Route.Commands_2 ->
-                    TitleAndImage.view "" "images/simple.gif" "80%"
+                    TitleMarkdown.view "Commands" "## A Cmd lets you _do_ stuff."
 
                 Route.Commands_3 ->
                     TitleAndImage.view "" "images/Commands.svg" "80%"

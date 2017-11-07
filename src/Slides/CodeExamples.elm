@@ -63,7 +63,6 @@ isEven : Int -> Bool
 isEven num = if num % 2 == 0 then True
               else False
 
-getEvenNumbers : List Int -> List Int
 getEvenNumbers = List.filter isEven
 -- (\\x -> if x % 2 == 0 then True else False)
 

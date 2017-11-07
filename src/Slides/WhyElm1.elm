@@ -32,18 +32,21 @@ init : Int -> Model
 init num =
     case num of
         1 ->
-            Model Show Hide Hide Hide Hide
+            Model Hide Hide Hide Hide Hide
 
         2 ->
-            Model Fade Show Hide Hide Hide
+            Model Show Hide Hide Hide Hide
 
         3 ->
-            Model Fade Fade Show Hide Hide
+            Model Fade Show Hide Hide Hide
 
         4 ->
-            Model Fade Fade Fade Show Hide
+            Model Fade Fade Show Hide Hide
 
         5 ->
+            Model Fade Fade Fade Show Hide
+
+        6 ->
             Model Fade Fade Fade Fade Show
 
         _ ->
