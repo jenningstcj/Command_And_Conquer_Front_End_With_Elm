@@ -65,7 +65,7 @@ view model =
             [ p [ setStyle model.line1 ] [ text "Immutability" ]
             , p [ setStyle model.line2 ] [ text "Purity" ]
             , p [ setStyle model.line3 ] [ text "Unidirectional Data Flow" ]
-            , p [ italicFont, setStyle model.line4 ] [ text "Sound a little like Redux?" ]
+            , p [ italicFont, setStyle model.line4 ] [ text "Sound like Redux?" ]
               --            , p [ setStyle model.line5 ] [ text "Statically Typed" ]
             , p [ setStyle model.line5 ] [ text "Little to No Runtime Exceptions" ]
             ]

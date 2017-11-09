@@ -6,3 +6,7 @@ body {
   color: #293c4b;
 }
 
+img {
+  margin: 20px 0;
+  max-width: 200px;
+}

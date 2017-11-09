@@ -1,7 +1,7 @@
 module Slides.MaybeDemo exposing (view, exampleCode1, exampleCode2)
 
 import Html exposing (..)
-import Html.Attributes exposing (style, defaultValue)
+import Html.Attributes exposing (style, defaultValue, value)
 import Html.Events exposing (onClick, onInput)
 import Msgs exposing (Msg)
 import Models exposing (..)
@@ -26,7 +26,7 @@ view exampleCode model msg =
                 ]
             , div [ mainFontSize2, centerStyle ]
                 [ label [] [ text "Type in a Number: " ]
-                , input [ style [ ( "fontSize", "1.2em" ) ], onInput msg, defaultValue "0" ] []
+                , input [ style [ ( "fontSize", "1.2em" ) ], onInput msg, value model.defaultValue ] []
                 , p [] [ text (toString result) ]
                 ]
             ]

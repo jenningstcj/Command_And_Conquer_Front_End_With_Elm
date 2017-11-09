@@ -17,7 +17,7 @@ init val location =
         { route = Route.Home
         , showMenu = False
         , progressPercentage = 0
-        , maybeDemoModel = MaybeDemoModel (Just 0)
+        , maybeDemoModel = MaybeDemoModel (Just 0) "0"
         , resultDemoModel = ResultDemoModel (Date.fromString "2018-1-12")
         }
 
@@ -45,7 +45,7 @@ update msg model =
         Next ->
             case (findNextPage model.route) of
                 Just r ->
-                    ( model, Route.stringToRoute r |> Route.modifyUrl )
+                    ( { model | maybeDemoModel = MaybeDemoModel Nothing "0" }, Route.stringToRoute r |> Route.modifyUrl )
 
                 Nothing ->
                     ( model, Cmd.none )
@@ -65,10 +65,10 @@ update msg model =
             ( model, Cmd.none )
 
         MaybeDemoUpdateNum1 n ->
-            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe) }, Cmd.none )
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe) n }, Cmd.none )
 
         MaybeDemoUpdateNum2 n ->
-            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe |> Maybe.map (\x -> x * 2)) }, Cmd.none )
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe |> Maybe.map (\x -> x * 2)) n }, Cmd.none )
 
         ResultDemoUpdateDate d ->
             ( { model | resultDemoModel = ResultDemoModel (d |> Date.fromString) }, Cmd.none )

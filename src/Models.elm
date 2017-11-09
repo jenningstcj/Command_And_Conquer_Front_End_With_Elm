@@ -18,6 +18,7 @@ type alias Model =
 
 type alias MaybeDemoModel =
     { num : Maybe Int
+    , defaultValue : String
     }
 
 

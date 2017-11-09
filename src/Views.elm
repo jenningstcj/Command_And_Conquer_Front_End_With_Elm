@@ -51,6 +51,9 @@ view model =
                 Route.Why_Elm_5 ->
                     WhyElm1.view (WhyElm1.init 5)
 
+                Route.Why_Elm_6 ->
+                    WhyElm1.view (WhyElm1.init 6)
+
                 Route.Speed ->
                     TitleAndImage.view "Speed" "images/speedcomparison.png" "80%"
 
@@ -88,13 +91,13 @@ view model =
                     CodeExamples.view "Currying" CodeExamples.mapExample 3 6
 
                 Route.Advanced_Currying_3 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 7 9
+                    CodeExamples.view "Currying" CodeExamples.mapExample 7 8
 
                 Route.Advanced_Currying_4 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 9 10
+                    CodeExamples.view "Currying" CodeExamples.mapExample 8 9
 
                 Route.Advanced_Currying_5 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 11 12
+                    CodeExamples.view "Currying" CodeExamples.mapExample 10 11
 
                 Route.Maybe_1 ->
                     CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
@@ -136,9 +139,9 @@ view model =
                     ResultDemo.view model.resultDemoModel
 
                 Route.Maybe_vs_Result ->
-                    TitleMarkdown.view "Maybe VS Result" """## A Maybe let's you handle a value that doesn't exist.
+                    TitleMarkdown.view "Maybe VS Result" """## A Maybe lets you handle a value that might not exist.
 
-## A Result let's you handle an error condition with an error message."""
+## A Result lets you handle an error condition with an error message."""
 
                 Route.Commands_1 ->
                     TitleMarkdown.view "Commands" ""
@@ -172,6 +175,9 @@ view model =
 
                 Route.Elm_Architecture_4 ->
                     TitleAndImage.view "" "images/Elm_Architecture.svg" "80%"
+
+                Route.Demo ->
+                    TitleMarkdown.view "" "# Demo"
 
                 Route.Links ->
                     TitleMarkdown.view "Links" """[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)
