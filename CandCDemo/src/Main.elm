@@ -1,19 +1,24 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, img)
-import Html.Attributes exposing (src)
+import Html exposing (Html, text, div, label, input, p)
+import Html.Attributes exposing (src, id, for, value)
+import Html.Events exposing (onInput)
 
 
+--import Ports exposing (sendDataOutside, receiveDataFromOutside)
+--import Models exposing (Model)
 ---- MODEL ----
 
 
 type alias Model =
-    {}
+    { firstName : String
+    , lastName : String
+    }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    ( Model "" "", Cmd.none )
 
 
 
@@ -21,12 +26,22 @@ init =
 
 
 type Msg
-    = NoOp
+    = UpdateFirstName String
+    | UpdateLastName String
+    | ExternalData Model
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        UpdateFirstName str ->
+            ( { model | firstName = str }, Cmd.none )
+
+        UpdateLastName str ->
+            ( { model | lastName = str }, Cmd.none )
+
+        ExternalData m ->
+            ( m, Cmd.none )
 
 
 
@@ -36,9 +51,23 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ img [ src "/logo.svg" ] []
-        , div [] [ text "Your Elm App is working!" ]
+        [ inputGroup "First Name: " "firstName" model.firstName UpdateFirstName
+        , inputGroup "Last Name: " "lastName" model.lastName UpdateLastName
         ]
+
+
+inputGroup : String -> String -> String -> (String -> Msg) -> Html Msg
+inputGroup lbl idName val msg =
+    div []
+        [ label [ for idName ] [ text lbl ]
+        , input [ id idName, value val, onInput msg ] []
+        , p [] [ text val ]
+        ]
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
 
 
 
@@ -51,5 +80,5 @@ main =
         { view = view
         , init = init
         , update = update
-        , subscriptions = always Sub.none
+        , subscriptions = subscriptions
         }
