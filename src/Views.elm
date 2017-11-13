@@ -141,7 +141,7 @@ view model =
                 Route.Maybe_vs_Result ->
                     TitleMarkdown.view "Maybe VS Result" """## A Maybe lets you handle a value that might not exist.
 
-## A Result lets you handle an error condition with an error message."""
+## A Result lets you handle an error condition with an error data object."""
 
                 Route.Commands_1 ->
                     TitleMarkdown.view "Commands" ""
