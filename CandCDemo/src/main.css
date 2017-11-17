@@ -14,3 +14,14 @@ img {
 input{
   font-size:28pt;
 }
+
+.otherApp{
+	margin-top:50px;
+  display:inline-block;
+	padding:15px;
+  border:1px solid black;
+}
+
+.otherApp button{
+  font-size:18pt;
+}

@@ -5,7 +5,7 @@ import Html.Attributes exposing (src, id, for, value)
 import Html.Events exposing (onInput)
 
 
---import Ports exposing (sendDataOutside, receiveDataFromOutside)
+--import Ports exposing (emitFormData, receiveFormData)
 --import Models exposing (Model)
 ---- MODEL ----
 

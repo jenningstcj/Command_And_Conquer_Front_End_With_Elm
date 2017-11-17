@@ -6,11 +6,11 @@ import Models exposing (Model)
 --outgoing
 
 
-port sendDataOutside : Model -> Cmd msg
+port emitFormData : Model -> Cmd msg
 
 
 
 --incoming
 
 
-port receiveDataFromOutside : (Model -> msg) -> Sub msg
+port receiveFormData : (Model -> msg) -> Sub msg
