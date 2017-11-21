@@ -1,8 +1,8 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, label, input, p)
-import Html.Attributes exposing (src, id, for, value)
-import Html.Events exposing (onInput)
+import Html exposing (Html, text, div, label, input, p, form, button)
+import Html.Attributes exposing (src, id, for, value, type_)
+import Html.Events exposing (onInput, onSubmit, onClick)
 
 
 --import Ports exposing (emitFormData, receiveFormData)
@@ -28,6 +28,7 @@ init =
 type Msg
     = UpdateFirstName String
     | UpdateLastName String
+    | SubmitForm
     | ExternalData Model
 
 
@@ -43,6 +44,9 @@ update msg model =
         ExternalData m ->
             ( m, Cmd.none )
 
+        SubmitForm ->
+            ( model, Cmd.none )
+
 
 
 ---- VIEW ----
@@ -50,9 +54,10 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
+    form [ onSubmit SubmitForm ]
         [ inputGroup "First Name: " "firstName" model.firstName UpdateFirstName
         , inputGroup "Last Name: " "lastName" model.lastName UpdateLastName
+        , button [ type_ "submit" ] [ text "Submit" ]
         ]
 
 
