@@ -23,6 +23,11 @@ font-size:18pt;
 	margin-top:50px;
   display:inline-block;
 	padding:15px;
-  border:1px solid black;
+  border:2px solid black;
 }
 
+
+#root{
+	padding:10px;
+  border:2px solid red;
+}

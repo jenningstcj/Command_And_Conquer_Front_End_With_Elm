@@ -172,22 +172,22 @@ centerStyle =
 
 titleSize1 : Attribute Msg
 titleSize1 =
-    style [ ( "fontSize", "4em" {- "44pt" -} ) ]
+    style [ ( "fontSize", "4em" {- "44pt" 4em -} ) ]
 
 
 titleSize2 : Attribute Msg
 titleSize2 =
-    style [ ( "fontSize", "3.5em" {- "36pt" -} ) ]
+    style [ ( "fontSize", "3.8em" {- "36pt" 3.5em -} ) ]
 
 
 mainFontSize1 : Attribute Msg
 mainFontSize1 =
-    style [ ( "fontSize", "3em" {- "32pt" -} ) ]
+    style [ ( "fontSize", "3.5em" {- "32pt" 3em -} ) ]
 
 
 mainFontSize2 : Attribute Msg
 mainFontSize2 =
-    style [ ( "fontSize", "2.5em" {- "28pt" -} ) ]
+    style [ ( "fontSize", "32pt" {- "28pt"  2.5em -} ) ]
 
 
 listStyleNone : Attribute Msg

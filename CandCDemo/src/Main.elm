@@ -55,7 +55,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
     form [ onSubmit SubmitForm ]
-        [ inputGroup "First Name: " "firstName" model.firstName UpdateFirstName
+        [ p [] [ text "Elm App" ]
+        , inputGroup "First Name: " "firstName" model.firstName UpdateFirstName
         , inputGroup "Last Name: " "lastName" model.lastName UpdateLastName
         , button [ type_ "submit" ] [ text "Submit" ]
         ]
