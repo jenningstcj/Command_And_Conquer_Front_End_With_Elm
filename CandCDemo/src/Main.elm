@@ -63,10 +63,10 @@ view model =
 
 
 inputGroup : String -> String -> String -> (String -> Msg) -> Html Msg
-inputGroup lbl idName val msg =
+inputGroup lbl idName val msgType =
     div []
         [ label [ for idName ] [ text lbl ]
-        , input [ id idName, value val, onInput msg ] []
+        , input [ id idName, value val, onInput msgType ] []
         , p [] [ text val ]
         ]
 
