@@ -54,15 +54,6 @@ view model =
                 Route.Why_Elm_6 ->
                     WhyElm1.view (WhyElm1.init 6)
 
-                Route.Speed ->
-                    TitleAndImage.view "Speed" "images/speedcomparison.png" "80%"
-
-                Route.Error_Messages ->
-                    TitleAndImage.view "Error Messages" "images/errormessages.png" "80%"
-
-                Route.Semantic_Versioning ->
-                    TitleAndImage.view "Enforced Semantic Versioning" "images/elmdiff.png" "50%"
-
                 Route.Currying_1 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
 
