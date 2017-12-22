@@ -18,7 +18,6 @@ type Route
     | Why_Elm_3
     | Why_Elm_4
     | Why_Elm_5
-    | Why_Elm_6
     | Currying_1
     | Currying_2
     | Currying_3
@@ -66,7 +65,7 @@ type Route
 
 routeList : List String
 routeList =
-    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Why_Elm_6", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Maybe_4", "Maybe_5", "Maybe_6", "Maybe_7", "Maybe_8", "Result_Type_1", "Result_Type_2", "Result_Type_3", "Result_Type_4", "Result_Demo", "Maybe_vs_Result", "Commands_1", "Commands_2", "Commands_3", "Commands_4", "Commands_5", "Commands_6", "Commands_7", "Elm_Architecture_1", "Elm_Architecture_2", "Elm_Architecture_3", "Elm_Architecture_4", "Demo", "Links" ]
+    [ "Home", "About", "Overview", "Why_Elm_1", "Why_Elm_2", "Why_Elm_3", "Why_Elm_4", "Why_Elm_5", "Currying_1", "Currying_2", "Currying_3", "Currying_4", "Currying_5", "Currying_6", "Currying_7", "Advanced_Currying_1", "Advanced_Currying_2", "Advanced_Currying_3", "Advanced_Currying_4", "Advanced_Currying_5", "Maybe_1", "Maybe_2", "Maybe_3", "Maybe_4", "Maybe_5", "Maybe_6", "Maybe_7", "Maybe_8", "Result_Type_1", "Result_Type_2", "Result_Type_3", "Result_Type_4", "Result_Demo", "Maybe_vs_Result", "Commands_1", "Commands_2", "Commands_3", "Commands_4", "Commands_5", "Commands_6", "Commands_7", "Elm_Architecture_1", "Elm_Architecture_2", "Elm_Architecture_3", "Elm_Architecture_4", "Demo", "Links" ]
 
 
 
@@ -99,9 +98,6 @@ stringToRoute str =
 
         "Why_Elm_5" ->
             Why_Elm_5
-
-        "Why_Elm_6" ->
-            Why_Elm_6
 
         "Currying_1" ->
             Currying_1
@@ -235,7 +231,6 @@ route =
         , Url.map Why_Elm_3 (s "why_elm_3")
         , Url.map Why_Elm_4 (s "why_elm_4")
         , Url.map Why_Elm_5 (s "why_elm_5")
-        , Url.map Why_Elm_6 (s "why_elm_6")
         , Url.map Currying_1 (s "currying_1")
         , Url.map Currying_2 (s "currying_2")
         , Url.map Currying_3 (s "currying_3")

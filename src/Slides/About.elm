@@ -26,7 +26,7 @@ view =
     div [ class "home-page" ]
         [ h1 [ titleSize1 ] [ text "Tyler Jennings" ]
         , ul [ listStyleNone ]
-            [ li [ mainFontSize2 ] [ img [ verticalAlignMiddle, src "images/ResultStackLogo.png" ] [], text "ResultStack" ]
+            [ li [ mainFontSize2 ] [ img [ verticalAlignMiddle, src "images/ResultStackLogo.png", style [ ( "height", "100px" ) ] ] [] ]
             , li [ mainFontSize2 ] [ img [ twitterLogoStyle, verticalAlignMiddle, src "images/Twitter_Logo_Blue.svg" ] [], text "@JenningsTCJ" ]
             ]
         ]

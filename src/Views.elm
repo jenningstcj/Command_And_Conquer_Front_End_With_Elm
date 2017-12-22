@@ -51,9 +51,6 @@ view model =
                 Route.Why_Elm_5 ->
                     WhyElm1.view (WhyElm1.init 5)
 
-                Route.Why_Elm_6 ->
-                    WhyElm1.view (WhyElm1.init 6)
-
                 Route.Currying_1 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
 

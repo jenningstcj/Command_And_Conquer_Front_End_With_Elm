@@ -18,7 +18,6 @@ type alias Model =
     , line2 : ShowType
     , line3 : ShowType
     , line4 : ShowType
-    , line5 : ShowType
     }
 
 
@@ -32,25 +31,22 @@ init : Int -> Model
 init num =
     case num of
         1 ->
-            Model Hide Hide Hide Hide Hide
+            Model Hide Hide Hide Hide
 
         2 ->
-            Model Show Hide Hide Hide Hide
+            Model Show Hide Hide Hide
 
         3 ->
-            Model Fade Show Hide Hide Hide
+            Model Fade Show Hide Hide
 
         4 ->
-            Model Fade Fade Show Hide Hide
+            Model Fade Fade Show Hide
 
         5 ->
-            Model Fade Fade Fade Show Hide
-
-        6 ->
-            Model Fade Fade Fade Fade Show
+            Model Fade Fade Fade Show
 
         _ ->
-            Model Show Hide Hide Hide Hide
+            Model Show Hide Hide Hide
 
 
 
@@ -65,9 +61,7 @@ view model =
             [ p [ setStyle model.line1 ] [ text "Immutability" ]
             , p [ setStyle model.line2 ] [ text "Purity" ]
             , p [ setStyle model.line3 ] [ text "Unidirectional Data Flow" ]
-            , p [ italicFont, setStyle model.line4 ] [ text "Sound like Redux?" ]
-              --            , p [ setStyle model.line5 ] [ text "Statically Typed" ]
-            , p [ setStyle model.line5 ] [ text "Little to No Runtime Exceptions" ]
+            , p [ setStyle model.line4 ] [ text "Little to No Runtime Exceptions" ]
             ]
         ]
 

@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, text, div, label, input, p, form, button)
-import Html.Attributes exposing (src, id, for, value, type_)
+import Html.Attributes exposing (src, id, for, value, type_, autocomplete)
 import Html.Events exposing (onInput, onSubmit, onClick)
 
 
@@ -66,7 +66,7 @@ inputGroup : String -> String -> String -> (String -> Msg) -> Html Msg
 inputGroup lbl idName val msgType =
     div []
         [ label [ for idName ] [ text lbl ]
-        , input [ id idName, value val, onInput msgType ] []
+        , input [ id idName, value val, onInput msgType, autocomplete False ] []
         , p [] [ text val ]
         ]
 
