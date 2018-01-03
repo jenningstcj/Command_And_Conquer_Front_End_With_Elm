@@ -5,8 +5,10 @@ import Html.Attributes exposing (src, id, for, value, type_, autocomplete)
 import Html.Events exposing (onInput, onSubmit, onClick)
 
 
---import Ports exposing (emitFormData, receiveFormData)
---import Models exposing (Model)
+{-
+   import Ports exposing (emitFormData, receiveFormData)
+   import Models exposing (Model)
+-}
 ---- MODEL ----
 
 

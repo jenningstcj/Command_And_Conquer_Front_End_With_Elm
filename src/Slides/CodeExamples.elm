@@ -120,7 +120,12 @@ Date.fromString : String -> Result String Date
 
 commandExample1 : String
 commandExample1 =
-    """type Msg
+    """makeApiCall : Cmd Msg
+makeApiCall =
+    Http.get "someUrl" SomeDataDecoder
+        |> Http.send HttpResult
+
+type Msg
     = HttpResult (Result Http.Error SomeData)
     | Action2
 

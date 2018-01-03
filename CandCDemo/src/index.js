@@ -9,12 +9,17 @@ let instance = Main.embed(rootDiv);
 registerServiceWorker();
 
 /*
-instance.ports.emitFormData.subscribe((data) => {
-	console.log('Data received:',data)
-});
+instance
+	.ports
+	.emitFormData
+	.subscribe((data) => console.log('Data received:', data));
 
 
-document.getElementById('nonElmButton').addEventListener('click', (ev) => {
-	instance.ports.receiveFormData.send({firstName:'John', lastName: 'Doe'});
+document.getElementById('nonElmButton')
+	.addEventListener('click', (ev) => {
+	    instance
+			  .ports
+			  .receiveFormData
+			  .send({firstName:'John', lastName: 'Doe'});
 });
 */
