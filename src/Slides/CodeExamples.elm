@@ -110,7 +110,7 @@ resultExample =
 
 Http.send :
   (Result Error a -> msg) -> Request a -> Cmd Msg
-  -- Msg (Result Http.error a)
+  -- returns: Msg (Result Http.error a)
 
 String.toInt : String -> Result String Int
 

@@ -35,8 +35,8 @@ view exampleCode model msg =
 exampleCode1 : String
 exampleCode1 =
     """unwrapNumber : Maybe Int -> Int
-unwrapNumber num =
-    case num of
+unwrapNumber maybeNum =
+    case maybeNum of
         Just a -> a
         Nothing -> 0
 """
@@ -45,8 +45,8 @@ unwrapNumber num =
 exampleCode2 : String
 exampleCode2 =
     """hoursToMinutes : Maybe Int -> Maybe Int
-hoursToMinutes num =
-  num
+hoursToMinutes maybeNum =
+  maybeNum
   |> Maybe.map (\\x -> x * 60)
 
 """

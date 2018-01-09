@@ -18525,7 +18525,7 @@ var _user$project$Slides_TitleAndImage$view = F3(
 	});
 var _user$project$Slides_CodeExamples$elmArchitecture = 'Model -> Update -> View\n\ntype alias Model =\n    { ...\n    }\n\nmain = Html.program\n        { init = init\n        , view = view\n        , update = update\n        , subscriptions = subscriptions\n        }\n';
 var _user$project$Slides_CodeExamples$commandExample1 = 'makeApiCall : Cmd Msg\nmakeApiCall =\n    Http.get \"someUrl\" SomeDataDecoder\n        |> Http.send HttpResult\n\ntype Msg\n    = HttpResult (Result Http.Error SomeData)\n    | Action2\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n       HttpResult (Ok data) ->\n         ({model | prop = data.prop}, Cmd.none )\n\n       HttpResult (Err e) -> ...\n';
-var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
+var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- returns: Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
 var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers = List.filter isEven\ngetEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
@@ -18618,8 +18618,8 @@ var _user$project$Slides_MaybeDemo$unwrapNumber = function (num) {
 		return 0;
 	}
 };
-var _user$project$Slides_MaybeDemo$exampleCode2 = 'hoursToMinutes : Maybe Int -> Maybe Int\nhoursToMinutes num =\n  num\n  |> Maybe.map (\\x -> x * 60)\n\n';
-var _user$project$Slides_MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\nunwrapNumber num =\n    case num of\n        Just a -> a\n        Nothing -> 0\n';
+var _user$project$Slides_MaybeDemo$exampleCode2 = 'hoursToMinutes : Maybe Int -> Maybe Int\nhoursToMinutes maybeNum =\n  maybeNum\n  |> Maybe.map (\\x -> x * 60)\n\n';
+var _user$project$Slides_MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\nunwrapNumber maybeNum =\n    case maybeNum of\n        Just a -> a\n        Nothing -> 0\n';
 var _user$project$Slides_MaybeDemo$view = F3(
 	function (exampleCode, model, msg) {
 		var result = _user$project$Slides_MaybeDemo$unwrapNumber(model.num);
@@ -19272,13 +19272,13 @@ var _user$project$Views$view = function (model) {
 			case 'Commands_3':
 				return A3(_user$project$Slides_TitleAndImage$view, '', 'images/Commands.svg', '80%');
 			case 'Commands_4':
-				return A4(_user$project$Slides_CodeExamples$view, 'Msg', _user$project$Slides_CodeExamples$commandExample1, 0, 4);
+				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 0, 4);
 			case 'Commands_5':
-				return A4(_user$project$Slides_CodeExamples$view, 'Msg', _user$project$Slides_CodeExamples$commandExample1, 5, 8);
+				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 5, 8);
 			case 'Commands_6':
-				return A4(_user$project$Slides_CodeExamples$view, 'Msg', _user$project$Slides_CodeExamples$commandExample1, 9, 16);
+				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 9, 16);
 			case 'Commands_7':
-				return A4(_user$project$Slides_CodeExamples$view, 'Msg', _user$project$Slides_CodeExamples$commandExample1, 12, 14);
+				return A4(_user$project$Slides_CodeExamples$view, 'Cmd Msg', _user$project$Slides_CodeExamples$commandExample1, 12, 14);
 			case 'Elm_Architecture_1':
 				return A4(_user$project$Slides_CodeExamples$view, 'The Elm Architecture', _user$project$Slides_CodeExamples$elmArchitecture, 0, 1);
 			case 'Elm_Architecture_2':

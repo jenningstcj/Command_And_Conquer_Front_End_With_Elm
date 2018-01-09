@@ -141,16 +141,16 @@ view model =
                     TitleAndImage.view "" "images/Commands.svg" "80%"
 
                 Route.Commands_4 ->
-                    CodeExamples.view "Msg" CodeExamples.commandExample1 0 4
+                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 0 4
 
                 Route.Commands_5 ->
-                    CodeExamples.view "Msg" CodeExamples.commandExample1 5 8
+                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 5 8
 
                 Route.Commands_6 ->
-                    CodeExamples.view "Msg" CodeExamples.commandExample1 9 16
+                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 9 16
 
                 Route.Commands_7 ->
-                    CodeExamples.view "Msg" CodeExamples.commandExample1 12 14
+                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 12 14
 
                 Route.Elm_Architecture_1 ->
                     CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
