@@ -44,10 +44,10 @@ unwrapNumber num =
 
 exampleCode2 : String
 exampleCode2 =
-    """multiplyByTwo : Maybe Int -> Maybe Int
-multiplyByTwo num =
+    """hoursToMinutes : Maybe Int -> Maybe Int
+hoursToMinutes num =
   num
-  |> Maybe.map (\\x -> x * 2)
+  |> Maybe.map (\\x -> x * 60)
 
 """
 

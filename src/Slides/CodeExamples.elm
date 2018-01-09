@@ -64,7 +64,7 @@ isEven num = if num % 2 == 0 then True
               else False
 
 getEvenNumbers = List.filter isEven
--- (\\x -> if x % 2 == 0 then True else False)
+getEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)
 
 getEvenNumbers [1,2,3,4]  -- outputs [2,4]
 

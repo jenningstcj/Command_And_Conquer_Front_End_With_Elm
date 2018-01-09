@@ -18528,7 +18528,7 @@ var _user$project$Slides_CodeExamples$commandExample1 = 'makeApiCall : Cmd Msg\n
 var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
-var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers = List.filter isEven\n-- (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
+var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers = List.filter isEven\ngetEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample2 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n\nadd5 = add 5\n\nadd5 : Int -> Int\nadd5 num2 =\n    5 + num2\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample1 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n';
 var _user$project$Slides_CodeExamples$linesToHighlight = F2(
@@ -18618,7 +18618,7 @@ var _user$project$Slides_MaybeDemo$unwrapNumber = function (num) {
 		return 0;
 	}
 };
-var _user$project$Slides_MaybeDemo$exampleCode2 = 'multiplyByTwo : Maybe Int -> Maybe Int\nmultiplyByTwo num =\n  num\n  |> Maybe.map (\\x -> x * 2)\n\n';
+var _user$project$Slides_MaybeDemo$exampleCode2 = 'hoursToMinutes : Maybe Int -> Maybe Int\nhoursToMinutes num =\n  num\n  |> Maybe.map (\\x -> x * 60)\n\n';
 var _user$project$Slides_MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\nunwrapNumber num =\n    case num of\n        Just a -> a\n        Nothing -> 0\n';
 var _user$project$Slides_MaybeDemo$view = F3(
 	function (exampleCode, model, msg) {
@@ -19559,7 +19559,7 @@ var _user$project$Main$update = F2(
 								A2(
 									_elm_lang$core$Maybe$map,
 									function (x) {
-										return x * 2;
+										return x * 60;
 									},
 									_elm_lang$core$Result$toMaybe(
 										_elm_lang$core$String$toInt(_p12))),
