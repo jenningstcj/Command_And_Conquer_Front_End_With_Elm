@@ -60,8 +60,7 @@ mapExample =
 List.filter : (a -> Bool) -> List a -> List a
 
 isEven : Int -> Bool
-isEven num = if num % 2 == 0 then True
-              else False
+isEven num = if num % 2 == 0 then True else False
 
 getEvenNumbers = List.filter isEven
 getEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)

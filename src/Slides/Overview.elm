@@ -15,6 +15,6 @@ view =
               --    , li [ mainFontSize2 ] [ text "The Elm Platform" ]
             , li [ mainFontSize2 ] [ text "Functional Concepts and Data Types" ]
             , li [ mainFontSize2 ] [ text "The Elm Architecture" ]
-            , li [ mainFontSize2 ] [ text "Integrating into existing code bases" ]
+            , li [ mainFontSize2 ] [ text "Integrating Elm into existing code bases" ]
             ]
         ]

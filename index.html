@@ -18304,7 +18304,7 @@ var _user$project$Slides_Overview$view = A2(
 									},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Integrating into existing code bases'),
+										_0: _elm_lang$html$Html$text('Integrating Elm into existing code bases'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
@@ -18528,7 +18528,7 @@ var _user$project$Slides_CodeExamples$commandExample1 = 'makeApiCall : Cmd Msg\n
 var _user$project$Slides_CodeExamples$resultExample = 'type Result error value\n    = Ok value\n    | Err error\n\nHttp.send :\n  (Result Error a -> msg) -> Request a -> Cmd Msg\n  -- returns: Msg (Result Http.error a)\n\nString.toInt : String -> Result String Int\n\nDate.fromString : String -> Result String Date\n';
 var _user$project$Slides_CodeExamples$maybeExample2 = 'getFirst: List Int -> Int\ngetFirst l =\n    case List.head l of\n        Just a -> a\n        Nothing -> 0\n\ngetFirst [1,2,3] --returns 1\n\ngetFirst [] --returns 0\n';
 var _user$project$Slides_CodeExamples$maybeExample1 = 'type Maybe a\n    = Just a\n    | Nothing\n\ntype alias Customer =\n    { name : String\n    , address : Maybe Address\n    }\n\ncase model.address of\n    Just a -> a\n    Nothing -> Address \"\" \"\" \"\" \"\" \"\"\n';
-var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True\n              else False\n\ngetEvenNumbers = List.filter isEven\ngetEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
+var _user$project$Slides_CodeExamples$mapExample = 'List.map : (a -> b) -> List a -> List b\nList.filter : (a -> Bool) -> List a -> List a\n\nisEven : Int -> Bool\nisEven num = if num % 2 == 0 then True else False\n\ngetEvenNumbers = List.filter isEven\ngetEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)\n\ngetEvenNumbers [1,2,3,4]  -- outputs [2,4]\n\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample2 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n\nadd5 = add 5\n\nadd5 : Int -> Int\nadd5 num2 =\n    5 + num2\n';
 var _user$project$Slides_CodeExamples$simpleCurryExample1 = 'add : Int -> Int -> Int\nadd num1 num2 =\n    num1 + num2\n';
 var _user$project$Slides_CodeExamples$linesToHighlight = F2(
@@ -18733,7 +18733,16 @@ var _user$project$Slides_MaybeDemo$view = F3(
 										ctor: '::',
 										_0: A2(
 											_elm_lang$html$Html$p,
-											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$style(
+													{
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.2em'},
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											},
 											{
 												ctor: '::',
 												_0: _elm_lang$html$Html$text(
@@ -18869,7 +18878,7 @@ var _user$project$Slides_ResultDemo$view = function (model) {
 										_0: _elm_lang$html$Html_Attributes$style(
 											{
 												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.5em'},
+												_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.2em'},
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -18887,7 +18896,16 @@ var _user$project$Slides_ResultDemo$view = function (model) {
 									ctor: '::',
 									_0: A2(
 										_elm_lang$html$Html$p,
-										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$style(
+												{
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'fontSize', _1: '1.2em'},
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										},
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html$text(result),
@@ -19230,13 +19248,13 @@ var _user$project$Views$view = function (model) {
 			case 'Advanced_Currying_1':
 				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 0, 2);
 			case 'Advanced_Currying_2':
-				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 3, 6);
+				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 3, 5);
 			case 'Advanced_Currying_3':
-				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 7, 8);
+				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 6, 7);
 			case 'Advanced_Currying_4':
-				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 8, 9);
+				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 7, 8);
 			case 'Advanced_Currying_5':
-				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 10, 11);
+				return A4(_user$project$Slides_CodeExamples$view, 'Currying', _user$project$Slides_CodeExamples$mapExample, 9, 10);
 			case 'Maybe_1':
 				return A4(_user$project$Slides_CodeExamples$view, 'Maybe Type', _user$project$Slides_CodeExamples$maybeExample1, 0, 3);
 			case 'Maybe_2':
@@ -19290,7 +19308,7 @@ var _user$project$Views$view = function (model) {
 			case 'Demo':
 				return A2(_user$project$Slides_TitleMarkdown$view, '', '# Demo');
 			default:
-				return A2(_user$project$Slides_TitleMarkdown$view, 'Links', '[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)\n\n[http://elm-lang.org/](http://elm-lang.org/)\n\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\n\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\n                ');
+				return A2(_user$project$Slides_TitleMarkdown$view, 'Links', '[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)\n\n[http://elm-lang.org/](http://elm-lang.org/)\n\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\n\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\n\n[https://www.brianthicks.com/](https://www.brianthicks.com/)\n                ');
 		}
 	}();
 	return A2(

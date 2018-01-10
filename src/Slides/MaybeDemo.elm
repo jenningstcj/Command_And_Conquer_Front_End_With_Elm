@@ -27,7 +27,7 @@ view exampleCode model msg =
             , div [ mainFontSize2, centerStyle ]
                 [ label [] [ text "Type in a Number: " ]
                 , input [ style [ ( "fontSize", "1.2em" ) ], onInput msg, value model.defaultValue ] []
-                , p [] [ text (toString result) ]
+                , p [ style [ ( "fontSize", "1.2em" ) ] ] [ text (toString result) ]
                 ]
             ]
 

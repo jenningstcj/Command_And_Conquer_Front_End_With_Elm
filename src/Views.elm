@@ -76,16 +76,16 @@ view model =
                     CodeExamples.view "Currying" CodeExamples.mapExample 0 2
 
                 Route.Advanced_Currying_2 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 3 6
+                    CodeExamples.view "Currying" CodeExamples.mapExample 3 5
 
                 Route.Advanced_Currying_3 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 7 8
+                    CodeExamples.view "Currying" CodeExamples.mapExample 6 7
 
                 Route.Advanced_Currying_4 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 8 9
+                    CodeExamples.view "Currying" CodeExamples.mapExample 7 8
 
                 Route.Advanced_Currying_5 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 10 11
+                    CodeExamples.view "Currying" CodeExamples.mapExample 9 10
 
                 Route.Maybe_1 ->
                     CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
@@ -175,6 +175,8 @@ view model =
 [https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)
 
 [https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)
+
+[https://www.brianthicks.com/](https://www.brianthicks.com/)
                 """
 
         progressBar =
