@@ -1,6 +1,7 @@
 # CodeMash 2018 Command And Conquer Front End With Elm
 
-# Slides: [https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html](https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html)
+# Slides: 
+[https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html](https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html)
 
 ## Best run in Full Screen(F11)
 
