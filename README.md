@@ -1,4 +1,5 @@
-# CodeMash 2018 Command And Conquer Front End With Elm
+# CodeMash 2018 
+# Command And Conquer the Front End With Elm
 
 # Slides: 
 [https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html](https://jenningstcj.github.io/Command_And_Conquer_Front_End_With_Elm/index.html)
