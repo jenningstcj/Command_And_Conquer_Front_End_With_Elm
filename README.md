@@ -1,4 +1,3 @@
-# CodeMash 2018 
 # Command And Conquer the Front End With Elm
 
 # Slides: 
