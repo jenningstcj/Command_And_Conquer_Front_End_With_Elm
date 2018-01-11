@@ -12,7 +12,7 @@ registerServiceWorker();
 instance
 	.ports
 	.emitFormData
-	.subscribe((data) => console.log('Data received:', data));
+	.subscribe(data => console.log('Data received:', data));
 
 
 document.getElementById('nonElmButton')

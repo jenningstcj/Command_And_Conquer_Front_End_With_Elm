@@ -30,10 +30,10 @@ setRoute : Maybe Route -> Model -> ( Model, Cmd Msg )
 setRoute maybeRoute model =
     case maybeRoute of
         Nothing ->
-            ( { model | route = Route.Home, progressPercentage = getProgressPercentage Route.Home }, Cmd.none )
+            ( { model | route = Route.Home, progressPercentage = getProgressPercentage Route.Home, showMenu = False }, Cmd.none )
 
         Just r ->
-            ( { model | route = r, progressPercentage = getProgressPercentage r }, Cmd.none )
+            ( { model | route = r, progressPercentage = getProgressPercentage r, showMenu = False }, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
