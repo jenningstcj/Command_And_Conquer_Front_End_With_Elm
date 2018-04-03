@@ -18,7 +18,7 @@ init val location =
         , showMenu = False
         , progressPercentage = 0
         , maybeDemoModel = MaybeDemoModel (Just 0) "0"
-        , resultDemoModel = ResultDemoModel (Date.fromString "2018-1-12")
+        , resultDemoModel = ResultDemoModel (Date.fromString "2018-4-21")
         }
 
 

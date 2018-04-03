@@ -3,6 +3,7 @@ module Main exposing (..)
 import Html exposing (Html, text, div, label, input, p, form, button)
 import Html.Attributes exposing (src, id, for, value, type_, autocomplete)
 import Html.Events exposing (onInput, onSubmit, onClick)
+import String.Case exposing (toCamelCaseLower)
 
 
 {-
@@ -58,17 +59,17 @@ view : Model -> Html Msg
 view model =
     form [ onSubmit SubmitForm ]
         [ p [] [ text "Elm App" ]
-        , inputGroup "First Name: " "firstName" model.firstName UpdateFirstName
-        , inputGroup "Last Name: " "lastName" model.lastName UpdateLastName
+        , inputGroup "First Name: " model.firstName UpdateFirstName
+        , inputGroup "Last Name: " model.lastName UpdateLastName
         , button [ type_ "submit" ] [ text "Submit" ]
         ]
 
 
-inputGroup : String -> String -> String -> (String -> Msg) -> Html Msg
-inputGroup lbl idName val msgType =
+inputGroup : String -> String -> (String -> Msg) -> Html Msg
+inputGroup lbl val msgType =
     div []
-        [ label [ for idName ] [ text lbl ]
-        , input [ id idName, value val, onInput msgType, autocomplete False ] []
+        [ label [ for (toCamelCaseLower lbl) ] [ text lbl ]
+        , input [ id (toCamelCaseLower lbl), value val, onInput msgType, autocomplete False ] []
         , p [] [ text val ]
         ]
 
