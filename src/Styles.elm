@@ -187,7 +187,7 @@ mainFontSize1 =
 
 mainFontSize2 : Attribute Msg
 mainFontSize2 =
-    style [ ( "fontSize", "32pt" {- "28pt"  2.5em -} ) ]
+    style [ ( "fontSize", "22pt" {- "28pt"  2.5em -} ) ]
 
 
 listStyleNone : Attribute Msg
