@@ -18886,7 +18886,7 @@ var _user$project$Slides_ResultDemo$view = function (model) {
 											_0: _elm_lang$html$Html_Events$onInput(_user$project$Msgs$ResultDemoUpdateDate),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$defaultValue('2018-1-12'),
+												_0: _elm_lang$html$Html_Attributes$defaultValue('2018-4-21'),
 												_1: {ctor: '[]'}
 											}
 										}
@@ -19308,7 +19308,7 @@ var _user$project$Views$view = function (model) {
 			case 'Demo':
 				return A2(_user$project$Slides_TitleMarkdown$view, '', '# Demo');
 			default:
-				return A2(_user$project$Slides_TitleMarkdown$view, 'Links', '[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)\n\n[http://elm-lang.org/](http://elm-lang.org/)\n\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\n\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\n\n[https://www.brianthicks.com/](https://www.brianthicks.com/)\n                ');
+				return A2(_user$project$Slides_TitleMarkdown$view, 'Links', '[http://bit.ly/CandCWithElm](http://bit.ly/CandCWithElm)\n\n[http://elm-lang.org/](http://elm-lang.org/)\n\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\n\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\n\n[https://www.brianthicks.com/](https://www.brianthicks.com/)\n\n[https://pragprog.com/book/jfelm/programming-elm](https://pragprog.com/book/jfelm/programming-elm)\n                ');
 		}
 	}();
 	return A2(
@@ -19488,7 +19488,8 @@ var _user$project$Main$setRoute = F2(
 					model,
 					{
 						route: _user$project$Route$Home,
-						progressPercentage: _user$project$Main$getProgressPercentage(_user$project$Route$Home)
+						progressPercentage: _user$project$Main$getProgressPercentage(_user$project$Route$Home),
+						showMenu: false
 					}),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
@@ -19500,7 +19501,8 @@ var _user$project$Main$setRoute = F2(
 					model,
 					{
 						route: _p7,
-						progressPercentage: _user$project$Main$getProgressPercentage(_p7)
+						progressPercentage: _user$project$Main$getProgressPercentage(_p7),
+						showMenu: false
 					}),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
@@ -19612,7 +19614,7 @@ var _user$project$Main$init = F2(
 					_elm_lang$core$Maybe$Just(0),
 					'0'),
 				resultDemoModel: _user$project$Models$ResultDemoModel(
-					_elm_lang$core$Date$fromString('2018-1-12'))
+					_elm_lang$core$Date$fromString('2018-4-21'))
 			});
 	});
 var _user$project$Main$main = A2(
