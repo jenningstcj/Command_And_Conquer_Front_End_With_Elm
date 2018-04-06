@@ -168,7 +168,7 @@ view model =
                     TitleMarkdown.view "" "# Demo"
 
                 Route.Links ->
-                    TitleMarkdown.view "Links" """[https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm](https://github.com/jenningstcj/Command_And_Conquer_Front_End_With_Elm)
+                    TitleMarkdown.view "Links" """[http://bit.ly/CandCWithElm](http://bit.ly/CandCWithElm)
 
 [http://elm-lang.org/](http://elm-lang.org/)
 
@@ -177,6 +177,8 @@ view model =
 [https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)
 
 [https://www.brianthicks.com/](https://www.brianthicks.com/)
+
+[https://pragprog.com/book/jfelm/programming-elm](https://pragprog.com/book/jfelm/programming-elm)
                 """
 
         progressBar =
