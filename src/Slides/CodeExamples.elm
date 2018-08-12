@@ -63,9 +63,9 @@ isEven : Int -> Bool
 isEven num = if num % 2 == 0 then True else False
 
 getEvenNumbers = List.filter isEven
-getEvenNumbers = List.filter (\\x -> if x % 2 == 0 then True else False)
 
 getEvenNumbers [1,2,3,4]  -- outputs [2,4]
+getEvenNumbers [5,6,7,8]  -- outputs [6,8]
 
 """
 
@@ -89,15 +89,15 @@ case model.address of
 
 maybeExample2 : String
 maybeExample2 =
-    """getFirst: List Int -> Int
+    """getFirst: List String -> String
 getFirst l =
     case List.head l of
         Just a -> a
-        Nothing -> 0
+        Nothing -> ""
 
-getFirst [1,2,3] --returns 1
+getFirst ["Garfield", "Odie"] --returns "Garfield"
 
-getFirst [] --returns 0
+getFirst [] --returns ""
 """
 
 

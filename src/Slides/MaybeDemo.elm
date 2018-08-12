@@ -46,8 +46,7 @@ exampleCode2 : String
 exampleCode2 =
     """hoursToMinutes : Maybe Int -> Maybe Int
 hoursToMinutes maybeNum =
-  maybeNum
-  |> Maybe.map (\\x -> x * 60)
+  Maybe.map (\\x -> x * 60) maybeNum
 
 """
 

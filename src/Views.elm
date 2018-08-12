@@ -17,6 +17,7 @@ import Slides.CodeExamples as CodeExamples
 import Slides.MaybeDemo as MaybeDemo
 import Slides.ResultDemo as ResultDemo
 import Slides.TitleMarkdown as TitleMarkdown
+import Slides.Image as Image
 
 
 -- VIEW --

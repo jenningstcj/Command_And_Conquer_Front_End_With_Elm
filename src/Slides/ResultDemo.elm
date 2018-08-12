@@ -32,7 +32,7 @@ view model =
                 ]
             , div [ mainFontSize2, centerStyle ]
                 [ label [] [ text "Type in a Date:" ]
-                , input [ style [ ( "fontSize", "1.2em" ) ], onInput Msgs.ResultDemoUpdateDate, defaultValue "2018-4-21" ] []
+                , input [ style [ ( "fontSize", "1.2em" ) ], onInput Msgs.ResultDemoUpdateDate, defaultValue "2018-8-17" ] []
                 , p [ style [ ( "fontSize", "1.2em" ) ] ] [ text result ]
                 ]
             ]

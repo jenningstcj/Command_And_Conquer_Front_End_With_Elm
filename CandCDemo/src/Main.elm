@@ -1,15 +1,15 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, label, input, p, form, button)
+import Html exposing (Html, h1, text, div, label, input, p, form, button)
 import Html.Attributes exposing (src, id, for, value, type_, autocomplete)
 import Html.Events exposing (onInput, onSubmit, onClick)
 import String.Case exposing (toCamelCaseLower)
 
 
-{-
-   import Ports exposing (emitFormData, receiveFormData)
-   import Models exposing (Model)
--}
+{--
+import Ports exposing (emitFormData, receiveFormData)
+import Models exposing (Model)
+--}
 ---- MODEL ----
 
 
@@ -58,7 +58,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     form [ onSubmit SubmitForm ]
-        [ p [] [ text "Elm App" ]
+        [ h1 [] [ text "Elm App" ]
         , inputGroup "First Name: " model.firstName UpdateFirstName
         , inputGroup "Last Name: " model.lastName UpdateLastName
         , button [ type_ "submit" ] [ text "Submit" ]
