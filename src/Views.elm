@@ -83,7 +83,7 @@ view model =
                     CodeExamples.view "Currying" CodeExamples.mapExample 6 7
 
                 Route.Advanced_Currying_4 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 7 8
+                    CodeExamples.view "Currying" CodeExamples.mapExample 8 9
 
                 Route.Advanced_Currying_5 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 9 10
