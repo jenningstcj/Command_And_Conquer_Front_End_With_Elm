@@ -1,12 +1,15 @@
-module Slides.MaybeDemo exposing (view, exampleCode1, exampleCode2)
+module Slides.MaybeDemo exposing (exampleCode1, exampleCode2, view)
 
 import Html exposing (..)
-import Html.Attributes exposing (style, defaultValue, value)
+import Html.Attributes exposing (style, value)
 import Html.Events exposing (onClick, onInput)
-import Msgs exposing (Msg)
 import Models exposing (..)
-import Styles exposing (centerStyle, titleSize2, mainFontSize2, hide, fadeFont)
-import SyntaxHighlight exposing (useTheme, monokai, elm, toBlockHtml, highlightLines, Highlight(..), HCode)
+import Msgs exposing (Msg)
+import Styles exposing (centerStyle, fadeFont, hide, mainFontSize2, titleSize2)
+
+
+
+--import SyntaxHighlight exposing (HCode, Highlight(..), elm, highlightLines, monokai, toBlockHtml, useTheme)
 
 
 view : String -> MaybeDemoModel -> (String -> Msg) -> Html Msg
@@ -15,21 +18,23 @@ view exampleCode model msg =
         result =
             unwrapNumber model.num
     in
-        div []
-            [ h1 [ centerStyle, titleSize2 ] [ text "Maybe Type" ]
-            , div [ mainFontSize2 ]
-                [ useTheme monokai
-                , elm exampleCode
-                    |> Result.map (toBlockHtml (Just 1))
-                    |> Result.withDefault
-                        (pre [] [ code [] [ text exampleCode ] ])
-                ]
-            , div [ mainFontSize2, centerStyle ]
-                [ label [] [ text "Type in a Number: " ]
-                , input [ style [ ( "fontSize", "1.2em" ) ], onInput msg, value model.defaultValue ] []
-                , p [ style [ ( "fontSize", "1.2em" ) ] ] [ text (toString result) ]
-                ]
+    div []
+        [ h1 [ centerStyle, titleSize2 ] [ text "Maybe Type" ]
+        , div [ mainFontSize2 ]
+            [ {- useTheme monokai
+                 , elm exampleCode
+                     |> Result.map (toBlockHtml (Just 1))
+                     |> Result.withDefault
+                         (pre [] [ code [] [ text exampleCode ] ])
+              -}
+              pre [] [ code [] [ text exampleCode ] ]
             ]
+        , div [ mainFontSize2, centerStyle ]
+            [ label [] [ text "Type in a Number: " ]
+            , input [ style "fontSize" "1.2em", onInput msg, value model.defaultValue ] []
+            , p [ style "fontSize" "1.2em" ] [ text (String.fromInt result) ]
+            ]
+        ]
 
 
 exampleCode1 : String

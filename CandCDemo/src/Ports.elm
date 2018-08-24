@@ -1,6 +1,7 @@
-port module Ports exposing (..)
+port module Ports exposing (emitFormData, receiveFormData)
 
 import Models exposing (Model)
+
 
 
 --outgoing

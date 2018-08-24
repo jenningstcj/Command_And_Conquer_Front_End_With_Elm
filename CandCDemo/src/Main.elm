@@ -1,9 +1,9 @@
-module Main exposing (..)
+module Main exposing (Model, Msg(..), init, inputGroup, main, subscriptions, update, view)
 
-import Html exposing (Html, h1, text, div, label, input, p, form, button)
-import Html.Attributes exposing (src, id, for, value, type_, autocomplete)
-import Html.Events exposing (onInput, onSubmit, onClick)
-import String.Case exposing (toCamelCaseLower)
+import Html exposing (Html, button, div, form, h1, input, label, p, text)
+import Html.Attributes exposing (autocomplete, for, id, src, type_, value)
+import Html.Events exposing (onClick, onInput, onSubmit)
+
 
 
 {--
@@ -68,8 +68,8 @@ view model =
 inputGroup : String -> String -> (String -> Msg) -> Html Msg
 inputGroup lbl val msgType =
     div []
-        [ label [ for (toCamelCaseLower lbl) ] [ text lbl ]
-        , input [ id (toCamelCaseLower lbl), value val, onInput msgType, autocomplete False ] []
+        [ label [] [ text lbl ]
+        , input [ value val, onInput msgType, autocomplete False ] []
         , p [] [ text val ]
         ]
 

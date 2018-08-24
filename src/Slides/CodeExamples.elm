@@ -1,16 +1,19 @@
-module Slides.CodeExamples exposing (..)
+module Slides.CodeExamples exposing (commandExample1, elmArchitecture, mapExample, maybeExample1, maybeExample2, resultExample, simpleCurryExample1, simpleCurryExample2, view)
 
 import Html exposing (..)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Msgs exposing (Msg)
-import Styles exposing (centerStyle, titleSize2, mainFontSize2, hide, fadeFont)
-import SyntaxHighlight exposing (useTheme, monokai, elm, toBlockHtml, highlightLines, Highlight(..), HCode)
+import Styles exposing (centerStyle, fadeFont, hide, mainFontSize2, titleSize2)
 
 
-linesToHighlight : Int -> Int -> Result x HCode -> Result x HCode
-linesToHighlight startingNum endingNum =
-    Result.map (highlightLines (Just Add) startingNum endingNum)
+
+--import SyntaxHighlight exposing (HCode, Highlight(..), elm, highlightLines, monokai, toBlockHtml, useTheme)
+{-
+   linesToHighlight : Int -> Int -> Result x HCode -> Result x HCode
+   linesToHighlight startingNum endingNum =
+       Result.map (highlightLines (Just Add) startingNum endingNum)
+-}
 
 
 view : String -> String -> Int -> Int -> Html Msg
@@ -18,12 +21,14 @@ view title codeBlock startingLine endingLine =
     div []
         [ h1 [ centerStyle, titleSize2 ] [ text title ]
         , div [ mainFontSize2 ]
-            [ useTheme monokai
-            , elm codeBlock
-                |> linesToHighlight startingLine endingLine
-                |> Result.map (toBlockHtml (Just 1))
-                |> Result.withDefault
-                    (pre [] [ code [] [ text codeBlock ] ])
+            [ {- useTheme monokai
+                 , elm codeBlock
+                     |> linesToHighlight startingLine endingLine
+                     |> Result.map (toBlockHtml (Just 1))
+                     |> Result.withDefault
+                         (pre [] [ code [] [ text codeBlock ] ])
+              -}
+              pre [] [ code [] [ text codeBlock ] ]
             ]
         ]
 

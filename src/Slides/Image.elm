@@ -4,7 +4,8 @@ import Html exposing (..)
 import Html.Attributes exposing (attribute, class, classList, href, id, placeholder, src, style)
 import Html.Events exposing (onClick)
 import Msgs exposing (Msg)
-import Styles exposing (centerStyle, titleSize2, italicFont, mainFontSize1, hide, fadeFont, setWidth, setHeight)
+import Styles exposing (centerStyle, fadeFont, hide, italicFont, mainFontSize1, setHeight, setWidth, titleSize2)
+
 
 
 -- VIEW --
@@ -12,18 +13,17 @@ import Styles exposing (centerStyle, titleSize2, italicFont, mainFontSize1, hide
 
 view : String -> Html Msg
 view url =
-    div [ setHeight "100%", setImage url ]
+    div (List.append [ setHeight "100%" ] (setImage url))
         [--div [ setHeight "80%", setImage url ]
          --[--    [ img [ setWidth widthPercent, src url ] []
          --]
         ]
 
 
-setImage : String -> Attribute Msg
+setImage : String -> List (Attribute Msg)
 setImage u =
-    style
-        [ ( "backgroundImage", "url(" ++ u ++ ")" )
-        , ( "backgroundSize", "contain" )
-        , ( "backgroundRepeat", "no-repeat" )
-        , ( "backgroundPosition", "center" )
-        ]
+    [ style "backgroundImage" ("url(" ++ u ++ ")")
+    , style "backgroundSize" "contain"
+    , style "backgroundRepeat" "no-repeat"
+    , style "backgroundPosition" "center"
+    ]

@@ -1,33 +1,35 @@
 module Views exposing (view)
 
+import Browser exposing (Document)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
+import Models exposing (Model)
 import Msgs exposing (Msg(..))
 import Regex exposing (..)
-import Styles exposing (..)
-import Models exposing (Model)
 import Route exposing (Route)
-import Slides.Home as Home
 import Slides.About as About
-import Slides.Overview as Overview
-import Slides.WhyElm1 as WhyElm1
-import Slides.TitleAndImage as TitleAndImage
 import Slides.CodeExamples as CodeExamples
-import Slides.MaybeDemo as MaybeDemo
-import Slides.ResultDemo as ResultDemo
-import Slides.TitleMarkdown as TitleMarkdown
+import Slides.Home as Home
 import Slides.Image as Image
+import Slides.MaybeDemo as MaybeDemo
+import Slides.Overview as Overview
+import Slides.ResultDemo as ResultDemo
+import Slides.TitleAndImage as TitleAndImage
+import Slides.TitleMarkdown as TitleMarkdown
+import Slides.WhyElm1 as WhyElm1
+import Styles exposing (..)
+
 
 
 -- VIEW --
 
 
-view : Model -> Html Msg
+view : Model -> Document Msg
 view model =
     let
         getView =
-            case model.route of
+            case Route.fromUrl model.url of
                 Route.Home ->
                     Home.view
 
@@ -185,35 +187,43 @@ view model =
         progressBar =
             progressView model
     in
-        div [ posFixed, sansSerif, setHeight "100%" ]
+    { title = "Command and Conquer the Front End With Elm"
+    , body =
+        [ div (List.append posFixed [ sansSerif, setHeight "100%" ])
             [ navMenu model
             , elmBorder
-            , div [ slideContainerStyle model, setHeight "90%" ] [ getView, navArrows ]
+            , div (List.append (slideContainerStyle model) [ setHeight "90%" ]) [ getView, navArrows ]
             , progressBar
             ]
+        ]
+    }
 
 
-posFixed : Attribute Msg
+posFixed : List (Attribute Msg)
 posFixed =
-    style [ ( "position", "fixed" ), ( "width", "100%" ) ]
+    [ style "position" "fixed", style "width" "100%" ]
 
 
 elmBorder : Html Msg
 elmBorder =
-    div [ elmBorderStyle ]
-        [ div [ tenHigh, elmDarkBlue ] []
-        , div [ tenHigh, elmLightBlue ] []
-        , div [ tenHigh, elmOrange ] []
-        , div [ tenHigh, elmGreen ] []
+    div elmBorderStyle
+        [ div (List.append tenHigh [ elmDarkBlue ]) []
+        , div (List.append tenHigh [ elmLightBlue ]) []
+        , div (List.append tenHigh [ elmOrange ]) []
+        , div (List.append tenHigh [ elmGreen ]) []
         ]
 
 
 navArrows : Html Msg
 navArrows =
-    div [ arrowsContainerStyle ]
-        [ i [ arrowStyle, leftArrowStyle, onClick Prev ] []
-        , i [ (style [ ( "fontWeight", "bold" ), ( "fontSize", "18pt" ), ( "cursor", "pointer" ) ]), onClick ToggleMenu ] [ text "M" ]
-        , i [ arrowStyle, rightArrowStyle, onClick Next ] []
+    let
+        iStyles =
+            List.append arrowStyle rightArrowStyle |> List.append [ onClick Next ]
+    in
+    div arrowsContainerStyle
+        [ i (List.append arrowStyle leftArrowStyle |> List.append [ onClick Prev ]) []
+        , i [ style "fontWeight" "bold", style "fontSize" "18pt", style "cursor" "pointer", onClick ToggleMenu ] [ text "M" ]
+        , i iStyles []
         ]
 
 
@@ -222,19 +232,24 @@ navMenu model =
     let
         menuItems =
             Route.routeList
-                |> List.map (\x -> a [ navMenuAnchorStyle, href ("#/" ++ String.toLower x) ] [ text (replaceUnderscoreWithSpace x) ])
+                |> List.map (\x -> a (List.append navMenuAnchorStyle [ href ("/" ++ String.toLower x) ]) [ text (replaceUnderscoreWithSpace "[_]" (\_ -> " ") x) ])
     in
-        div [ navMenuStyle model ]
-            menuItems
+    div (navMenuStyle model)
+        menuItems
 
 
-replaceUnderscoreWithSpace : String -> String
-replaceUnderscoreWithSpace str =
-    str |> Regex.replace Regex.All (Regex.regex "[_]") (\_ -> " ")
+replaceUnderscoreWithSpace : String -> (Regex.Match -> String) -> String -> String
+replaceUnderscoreWithSpace userRegex replacer str =
+    case Regex.fromString userRegex of
+        Nothing ->
+            str
+
+        Just regex ->
+            Regex.replace regex replacer str
 
 
 progressView : Model -> Html Msg
 progressView model =
-    div [ progressContainerStyle ]
-        [ div [ progressStyle model ] []
+    div progressContainerStyle
+        [ div (progressStyle model) []
         ]

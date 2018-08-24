@@ -10,6 +10,7 @@ import Msgs exposing (Msg)
 import Styles exposing (centerStyle, titleSize1)
 
 
+
 -- MODEL --
 
 
@@ -23,39 +24,36 @@ type alias Model =
 
 view : Html Msg
 view =
-    div [ class "home-page", container ]
+    div (List.append [ class "home-page" ] container)
         [ h1 [ centerStyle, titleSize1 ] [ text "Command and Conquer the Front End with Elm" ]
-        , div [ setImage "images/elm_logo.svg" ]
+        , div (setImage "images/elm_logo.svg")
             []
         ]
 
 
-logoStyle : Attribute Msg
+logoStyle : List (Attribute Msg)
 logoStyle =
-    style
-        [ ( "width", "40%" )
-        , ( "height", "40%" )
-        ]
+    [ style "width" "40%"
+    , style "height" "40%"
+    ]
 
 
-setImage : String -> Attribute Msg
+setImage : String -> List (Attribute Msg)
 setImage u =
-    style
-        [ ( "backgroundImage", "url(" ++ u ++ ")" )
-        , ( "backgroundSize", "contain" )
-        , ( "backgroundRepeat", "no-repeat" )
-        , ( "backgroundPosition", "center" )
-        , ( "height", "65%" )
-        , ( "width", "50%" )
-        ]
+    [ style "backgroundImage" ("url(" ++ u ++ ")")
+    , style "backgroundSize" "contain"
+    , style "backgroundRepeat" "no-repeat"
+    , style "backgroundPosition" "center"
+    , style "height" "65%"
+    , style "width" "50%"
+    ]
 
 
-container : Attribute Msg
+container : List (Attribute Msg)
 container =
-    style
-        [ ( "height", "100%" )
-        , ( "display", "flex" )
-        , ( "width", "100%" )
-        , ( "alignItems", "center" )
-        , ( "justifyContent", "center" )
-        ]
+    [ style "height" "100%"
+    , style "display" "flex"
+    , style "width" "100%"
+    , style "alignItems" "center"
+    , style "justifyContent" "center"
+    ]

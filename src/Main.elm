@@ -1,59 +1,48 @@
 module Main exposing (main)
 
-import Navigation exposing (Location)
+import Browser
+import Browser.Events as Events
+import Browser.Navigation as Nav
 import Json.Decode as Decode exposing (Value)
-import Keyboard
+import Models exposing (MaybeDemoModel, Model, ResultDemoModel)
 import Msgs exposing (Msg(..))
-import Models exposing (Model, MaybeDemoModel, ResultDemoModel)
-import Views exposing (view)
-import Route exposing (Route)
-import Date exposing (Date)
 import Result
+import Route exposing (Route)
+import Url
+import Views exposing (view)
 
 
-init : Value -> Location -> ( Model, Cmd Msg )
-init val location =
-    setRoute (Route.fromLocation location)
-        { route = Route.Home
-        , showMenu = False
-        , progressPercentage = 0
-        , maybeDemoModel = MaybeDemoModel (Just 0) "0"
-        , resultDemoModel = ResultDemoModel (Date.fromString "2018-8-17")
-        }
-
-
-
--- UPDATE --
-
-
-setRoute : Maybe Route -> Model -> ( Model, Cmd Msg )
-setRoute maybeRoute model =
-    case maybeRoute of
-        Nothing ->
-            ( { model | route = Route.Home, progressPercentage = getProgressPercentage Route.Home, showMenu = False }, Cmd.none )
-
-        Just r ->
-            ( { model | route = r, progressPercentage = getProgressPercentage r, showMenu = False }, Cmd.none )
+init : flags -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+init flags url key =
+    ( Model key url False 0 (MaybeDemoModel (Just 0) "0") (ResultDemoModel "2018-08-17"), Nav.pushUrl key "/" )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        SetRoute route ->
-            setRoute route model
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( { model | showMenu = False }, Nav.pushUrl model.navKey (Url.toString url) )
+
+                Browser.External href ->
+                    ( model, Nav.load href )
+
+        UrlChanged url ->
+            ( { model | url = url }, Cmd.none )
 
         Next ->
-            case (findNextPage model.route) of
+            case findNextPage (Route.fromUrl model.url) of
                 Just r ->
-                    ( { model | maybeDemoModel = MaybeDemoModel Nothing "0" }, Route.stringToRoute r |> Route.modifyUrl )
+                    ( { model | maybeDemoModel = MaybeDemoModel Nothing "0" }, r |> Nav.pushUrl model.navKey )
 
                 Nothing ->
                     ( model, Cmd.none )
 
         Prev ->
-            case (findPreviousPage model.route) of
+            case findPreviousPage (Route.fromUrl model.url) of
                 Just r ->
-                    ( model, Route.stringToRoute r |> Route.modifyUrl )
+                    ( model, r |> Nav.pushUrl model.navKey )
 
                 Nothing ->
                     ( model, Cmd.none )
@@ -65,13 +54,13 @@ update msg model =
             ( model, Cmd.none )
 
         MaybeDemoUpdateNum1 n ->
-            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe) n }, Cmd.none )
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt) n }, Cmd.none )
 
         MaybeDemoUpdateNum2 n ->
-            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Result.toMaybe |> Maybe.map (\x -> x * 60)) n }, Cmd.none )
+            ( { model | maybeDemoModel = MaybeDemoModel (n |> String.toInt |> Maybe.map (\x -> x * 60)) n }, Cmd.none )
 
         ResultDemoUpdateDate d ->
-            ( { model | resultDemoModel = ResultDemoModel (d |> Date.fromString) }, Cmd.none )
+            ( { model | resultDemoModel = ResultDemoModel d }, Cmd.none )
 
 
 getProgressPercentage : Route -> Float
@@ -82,10 +71,10 @@ getProgressPercentage route =
                 |> toFloat
 
         indexedList =
-            List.indexedMap (,) Route.routeList
+            List.indexedMap (\a b -> ( a, b )) Route.routeList
 
         currentRouteString =
-            toString route
+            Debug.toString route
 
         findRouteIndex list num =
             case list of
@@ -95,26 +84,28 @@ getProgressPercentage route =
                 x :: [] ->
                     if x == currentRouteString then
                         num + 1
+
                     else
                         num
 
                 x :: y :: rest ->
                     if x == currentRouteString then
                         num + 1
+
                     else
                         findRouteIndex (y :: rest) (num + 1)
 
         currentPos =
             findRouteIndex Route.routeList 0
     in
-        (currentPos * 100) / length
+    (currentPos * 100) / length
 
 
 findNextPage : Route -> Maybe String
 findNextPage current =
     let
         currentRouteString =
-            toString current
+            Debug.toString current
 
         findNextInList l =
             case l of
@@ -127,17 +118,18 @@ findNextPage current =
                 x :: y :: rest ->
                     if x == currentRouteString then
                         Just y
+
                     else
                         findNextInList (y :: rest)
     in
-        findNextInList Route.routeList
+    findNextInList Route.routeList |> Maybe.map (\x -> String.toLower x)
 
 
 findPreviousPage : Route -> Maybe String
 findPreviousPage current =
     let
         currentRouteString =
-            toString current
+            Debug.toString current
 
         findPrevInList l =
             case l of
@@ -150,10 +142,11 @@ findPreviousPage current =
                 x :: y :: rest ->
                     if y == currentRouteString then
                         Just x
+
                     else
                         findPrevInList (y :: rest)
     in
-        findPrevInList Route.routeList
+    findPrevInList Route.routeList |> Maybe.map (\x -> String.toLower x)
 
 
 
@@ -163,7 +156,7 @@ findPreviousPage current =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
-        [ Keyboard.ups keyPressDispatcher
+        [ Events.onKeyUp keyDecoder
         ]
 
 
@@ -171,26 +164,31 @@ subscriptions model =
 -- 37 left arrow key
 -- 39 right arrow key
 -- 77 m key
---34  right arrow on presenter
---33 left arrow on presenter
+--34 key code or PageDown  right arrow on presenter
+--33 key code or PageUp left arrow on presenter
 
 
-keyPressDispatcher : Int -> Msg
+keyDecoder : Decode.Decoder Msg
+keyDecoder =
+    Decode.map keyPressDispatcher (Decode.field "key" Decode.string)
+
+
+keyPressDispatcher : String -> Msg
 keyPressDispatcher keyCodeMap =
     case keyCodeMap of
-        33 ->
+        "PageUp" ->
             Prev
 
-        37 ->
+        "ArrowLeft" ->
             Prev
 
-        34 ->
+        "PageDown" ->
             Next
 
-        39 ->
+        "ArrowRight" ->
             Next
 
-        77 ->
+        "m" ->
             ToggleMenu
 
         _ ->
@@ -203,9 +201,21 @@ keyPressDispatcher keyCodeMap =
 
 main : Program Value Model Msg
 main =
-    Navigation.programWithFlags (Route.fromLocation >> SetRoute)
+    Browser.application
         { init = init
         , view = view
         , update = update
         , subscriptions = subscriptions
+        , onUrlChange = UrlChanged
+        , onUrlRequest = LinkClicked
         }
+
+
+
+{- Navigation.programWithFlags (Route.fromLocation >> SetRoute)
+   { init = init
+   , view = view
+   , update = update
+   , subscriptions = subscriptions
+   }
+-}
