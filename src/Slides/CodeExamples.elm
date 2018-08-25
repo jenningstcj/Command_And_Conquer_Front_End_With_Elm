@@ -151,7 +151,7 @@ type alias Model =
     { ...
     }
 
-main = Html.program
+main = Browser.document
         { init = init
         , view = view
         , update = update

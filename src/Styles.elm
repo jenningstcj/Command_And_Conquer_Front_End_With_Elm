@@ -99,6 +99,7 @@ progressContainerStyle =
     [ style "bottom" "0"
     , style "position" "fixed"
     , style "width" "100%"
+    , style "left" "0px"
     ]
 
 

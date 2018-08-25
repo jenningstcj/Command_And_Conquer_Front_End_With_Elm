@@ -29,7 +29,7 @@ update msg model =
                     ( model, Nav.load href )
 
         UrlChanged url ->
-            ( { model | url = url }, Cmd.none )
+            ( { model | url = url, progressPercentage = getProgressPercentage (Route.fromUrl url) }, Cmd.none )
 
         Next ->
             case findNextPage (Route.fromUrl model.url) of
@@ -70,9 +70,6 @@ getProgressPercentage route =
             List.length Route.routeList
                 |> toFloat
 
-        indexedList =
-            List.indexedMap (\a b -> ( a, b )) Route.routeList
-
         currentRouteString =
             Debug.toString route
 
@@ -83,20 +80,20 @@ getProgressPercentage route =
 
                 x :: [] ->
                     if x == currentRouteString then
-                        num + 1
+                        num
 
                     else
                         num
 
                 x :: y :: rest ->
                     if x == currentRouteString then
-                        num + 1
+                        num
 
                     else
                         findRouteIndex (y :: rest) (num + 1)
 
         currentPos =
-            findRouteIndex Route.routeList 0
+            findRouteIndex Route.routeList 1
     in
     (currentPos * 100) / length
 
