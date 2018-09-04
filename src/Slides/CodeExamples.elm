@@ -116,9 +116,7 @@ Http.send :
   (Result Error a -> msg) -> Request a -> Cmd Msg
   -- returns: Msg (Result Http.error a)
 
-String.toInt : String -> Result String Int
-
-Date.fromString : String -> Result String Date
+Iso8601.toTime : String -> Result (List DeadEnd) Posix
 """
 
 

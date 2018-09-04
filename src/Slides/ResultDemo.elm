@@ -44,7 +44,7 @@ view model =
 
 exampleCode : String
 exampleCode =
-    """Date.fromString : String -> Result String Date
+    """Iso8601.toTime : String -> Result (List DeadEnd) Posix
 """
 
 

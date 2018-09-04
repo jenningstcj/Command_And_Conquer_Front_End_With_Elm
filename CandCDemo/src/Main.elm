@@ -1,15 +1,17 @@
-module Main exposing (Model, Msg(..), init, inputGroup, main, subscriptions, update, view)
+module Main exposing (Msg(..), init, inputGroup, main, subscriptions, update, view)
 
+import Browser
 import Html exposing (Html, button, div, form, h1, input, label, p, text)
-import Html.Attributes exposing (autocomplete, for, id, src, type_, value)
+import Html.Attributes exposing (autocomplete, class, for, id, src, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
+import Json.Decode as Decode exposing (Value)
 
 
 
-{--
-import Ports exposing (emitFormData, receiveFormData)
-import Models exposing (Model)
---}
+{-
+   import Models exposing (Model)
+   import Ports exposing (emitFormData, receiveFormData)
+-}
 ---- MODEL ----
 
 
@@ -19,8 +21,8 @@ type alias Model =
     }
 
 
-init : ( Model, Cmd Msg )
-init =
+init : flags -> ( Model, Cmd Msg )
+init flags =
     ( Model "" "", Cmd.none )
 
 
@@ -57,7 +59,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    form [ onSubmit SubmitForm ]
+    form [ class "name-form", onSubmit SubmitForm ]
         [ h1 [] [ text "Elm App" ]
         , inputGroup "First Name: " model.firstName UpdateFirstName
         , inputGroup "Last Name: " model.lastName UpdateLastName
@@ -83,9 +85,9 @@ subscriptions model =
 ---- PROGRAM ----
 
 
-main : Program Never Model Msg
+main : Program Value Model Msg
 main =
-    Html.program
+    Browser.element
         { view = view
         , init = init
         , update = update
