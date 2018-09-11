@@ -7068,8 +7068,8 @@ var author$project$Slides$Home$view = A2(
 			_List_Nil)
 		]));
 var author$project$Slides$MaybeDemo$Left = {$: 'Left'};
-var author$project$Slides$MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\nunwrapNumber maybeNum =\n    case maybeNum of\n        Just a -> a\n        Nothing -> 0\n';
-var author$project$Slides$MaybeDemo$exampleCode2 = 'hoursToMinutes : Maybe Int -> Maybe Int\nhoursToMinutes maybeNum =\n  Maybe.map (\\x -> x * 60) maybeNum\n\n';
+var author$project$Slides$MaybeDemo$exampleCode1 = 'unwrapNumber : Maybe Int -> Int\r\nunwrapNumber maybeNum =\r\n    case maybeNum of\r\n        Just a -> a\r\n        Nothing -> 0\r\n';
+var author$project$Slides$MaybeDemo$exampleCode2 = 'hoursToMinutes : Maybe Int -> Maybe Int\r\nhoursToMinutes maybeNum =\r\n  Maybe.map (\\x -> x * 60) maybeNum\r\n\r\n';
 var author$project$Slides$MaybeDemo$setImage = F2(
 	function (u, pos) {
 		var yPos = function () {
@@ -8653,27 +8653,27 @@ var author$project$Views$view = function (model) {
 				return author$project$Slides$WhyElm1$view(
 					author$project$Slides$WhyElm1$init(5));
 			case 'Currying_1':
-				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying1.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying1.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Currying_2':
-				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying2.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying2.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Currying_3':
-				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying3.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying3.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Advanced_Currying_1':
-				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying4.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Currying', 'images/currying4.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Maybe_1':
-				return A3(author$project$Slides$TitleAndImage$view, 'Maybe Type', 'images/maybe1.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Maybe Type', 'images/maybe1.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Maybe_2':
-				return A3(author$project$Slides$TitleAndImage$view, 'Maybe Type', 'images/maybe2.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Maybe Type', 'images/maybe2.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Maybe_3':
 				return A5(author$project$Slides$MaybeDemo$view, 'images/MaybeDemo1.png', author$project$Slides$MaybeDemo$Left, author$project$Slides$MaybeDemo$exampleCode1, model.maybeDemoModel, author$project$Msgs$MaybeDemoUpdateNum1);
 			case 'Maybe_4':
 				return A5(author$project$Slides$MaybeDemo$view, 'images/MaybeDemo2.png', author$project$Slides$MaybeDemo$Left, author$project$Slides$MaybeDemo$exampleCode2, model.maybeDemoModel, author$project$Msgs$MaybeDemoUpdateNum2);
 			case 'Result_Type_1':
-				return A3(author$project$Slides$TitleAndImage$view, 'Result Type', 'images/result1.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'Result Type', 'images/result1.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Result_Demo':
 				return A3(author$project$Slides$ResultDemo$view, 'images/ResultDemo1.png', author$project$Slides$ResultDemo$Left, model.resultDemoModel);
 			case 'Maybe_vs_Result':
-				return A2(author$project$Slides$TitleMarkdown$view, 'Maybe VS Result', '## A Maybe lets you handle a value that might not exist.\n\n## A Result lets you handle an error condition with an error object.');
+				return A2(author$project$Slides$TitleMarkdown$view, 'Maybe VS Result', '## A Maybe lets you handle a value that might not exist.\r\n\r\n## A Result lets you handle an error condition with an error object.');
 			case 'Commands_1':
 				return A2(author$project$Slides$TitleMarkdown$view, 'Commands', '');
 			case 'Commands_2':
@@ -8683,13 +8683,13 @@ var author$project$Views$view = function (model) {
 			case 'Commands_4':
 				return A3(author$project$Slides$TitleAndImage$view, 'Cmd Msg', 'images/command1.png', author$project$Slides$TitleAndImage$Left);
 			case 'Elm_Architecture_1':
-				return A3(author$project$Slides$TitleAndImage$view, 'The Elm Architecture', 'images/architecture1.png', author$project$Slides$TitleAndImage$Left);
+				return A3(author$project$Slides$TitleAndImage$view, 'The Elm Architecture', 'images/architecture1.PNG', author$project$Slides$TitleAndImage$Left);
 			case 'Elm_Architecture_4':
 				return A3(author$project$Slides$TitleAndImage$view, '', 'images/Elm_Architecture.svg', author$project$Slides$TitleAndImage$Center);
 			case 'Demo':
 				return A2(author$project$Slides$TitleMarkdown$view, '', '# Demo');
 			default:
-				return A2(author$project$Slides$TitleMarkdown$view, 'Links', '[http://bit.ly/CandCWithElm](http://bit.ly/CandCWithElm)\n\n[http://elm-lang.org/](http://elm-lang.org/)\n\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\n\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\n\n[https://www.brianthicks.com/](https://www.brianthicks.com/)\n\n[https://pragprog.com/book/jfelm/programming-elm](https://pragprog.com/book/jfelm/programming-elm)\n                ');
+				return A2(author$project$Slides$TitleMarkdown$view, 'Links', '[http://bit.ly/CandCWithElm](http://bit.ly/CandCWithElm)\r\n\r\n[http://elm-lang.org/](http://elm-lang.org/)\r\n\r\n[https://github.com/rtfeldman/elm-spa-example](https://github.com/rtfeldman/elm-spa-example)\r\n\r\n[https://www.npmjs.com/package/create-elm-app](https://www.npmjs.com/package/create-elm-app)\r\n\r\n[https://www.brianthicks.com/](https://www.brianthicks.com/)\r\n\r\n[https://pragprog.com/book/jfelm/programming-elm](https://pragprog.com/book/jfelm/programming-elm)\r\n                ');
 		}
 	}();
 	return {
