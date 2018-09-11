@@ -55,14 +55,18 @@ view model =
                     WhyElm1.view (WhyElm1.init 5)
 
                 Route.Currying_1 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
+                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
+                    TitleAndImage.view "Currying" "images/currying1.png" TitleAndImage.Left
 
                 Route.Currying_2 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
+                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
+                    TitleAndImage.view "Currying" "images/currying2.png" TitleAndImage.Left
 
                 Route.Currying_3 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
+                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
+                    TitleAndImage.view "Currying" "images/currying3.png" TitleAndImage.Left
 
+                {--
                 Route.Currying_4 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 4 5
 
@@ -74,10 +78,12 @@ view model =
 
                 Route.Currying_7 ->
                     CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 8 9
-
+                    --}
                 Route.Advanced_Currying_1 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 0 2
+                    --CodeExamples.view "Currying" CodeExamples.mapExample 0 2
+                    TitleAndImage.view "Currying" "images/currying4.png" TitleAndImage.Left
 
+                {--
                 Route.Advanced_Currying_2 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 3 5
 
@@ -89,13 +95,16 @@ view model =
 
                 Route.Advanced_Currying_5 ->
                     CodeExamples.view "Currying" CodeExamples.mapExample 9 10
-
+                    --}
                 Route.Maybe_1 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
+                    --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
+                    TitleAndImage.view "Maybe Type" "images/maybe1.png" TitleAndImage.Left
 
                 Route.Maybe_2 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 4 8
+                    --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 4 8
+                    TitleAndImage.view "Maybe Type" "images/maybe2.png" TitleAndImage.Left
 
+                {--
                 Route.Maybe_3 ->
                     CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 9 12
 
@@ -107,16 +116,18 @@ view model =
 
                 Route.Maybe_6 ->
                     CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 8 9
+                    --}
+                Route.Maybe_3 ->
+                    MaybeDemo.view "images/MaybeDemo1.png" MaybeDemo.Left MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
 
-                Route.Maybe_7 ->
-                    MaybeDemo.view MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
-
-                Route.Maybe_8 ->
-                    MaybeDemo.view MaybeDemo.exampleCode2 model.maybeDemoModel Msgs.MaybeDemoUpdateNum2
+                Route.Maybe_4 ->
+                    MaybeDemo.view "images/MaybeDemo2.png" MaybeDemo.Left MaybeDemo.exampleCode2 model.maybeDemoModel Msgs.MaybeDemoUpdateNum2
 
                 Route.Result_Type_1 ->
-                    CodeExamples.view "Result Type" CodeExamples.resultExample 0 3
+                    --CodeExamples.view "Result Type" CodeExamples.resultExample 0 3
+                    TitleAndImage.view "Result Type" "images/result1.png" TitleAndImage.Left
 
+                {--
                 Route.Result_Type_2 ->
                     CodeExamples.view "Result Type" CodeExamples.resultExample 4 7
 
@@ -125,9 +136,9 @@ view model =
 
                 Route.Result_Type_4 ->
                     CodeExamples.view "Result Type" CodeExamples.resultExample 10 11
-
+                    --}
                 Route.Result_Demo ->
-                    ResultDemo.view model.resultDemoModel
+                    ResultDemo.view "images/ResultDemo1.png" ResultDemo.Left model.resultDemoModel
 
                 Route.Maybe_vs_Result ->
                     TitleMarkdown.view "Maybe VS Result" """## A Maybe lets you handle a value that might not exist.
@@ -141,11 +152,13 @@ view model =
                     TitleMarkdown.view "Commands" "## A Cmd lets you _do_ stuff."
 
                 Route.Commands_3 ->
-                    TitleAndImage.view "" "images/Commands.svg" "80%"
+                    TitleAndImage.view "" "images/Commands.svg" TitleAndImage.Center
 
                 Route.Commands_4 ->
-                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 0 4
+                    --CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 0 4
+                    TitleAndImage.view "Cmd Msg" "images/command1.png" TitleAndImage.Left
 
+                {--
                 Route.Commands_5 ->
                     CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 5 8
 
@@ -154,18 +167,20 @@ view model =
 
                 Route.Commands_7 ->
                     CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 12 14
-
+                    --}
                 Route.Elm_Architecture_1 ->
-                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
+                    --CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
+                    TitleAndImage.view "The Elm Architecture" "images/architecture1.png" TitleAndImage.Left
 
+                {--
                 Route.Elm_Architecture_2 ->
                     CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 2 5
 
                 Route.Elm_Architecture_3 ->
                     CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 6 12
-
+                    --}
                 Route.Elm_Architecture_4 ->
-                    TitleAndImage.view "" "images/Elm_Architecture.svg" "80%"
+                    TitleAndImage.view "" "images/Elm_Architecture.svg" TitleAndImage.Center
 
                 Route.Demo ->
                     TitleMarkdown.view "" "# Demo"

@@ -1,4 +1,4 @@
-module Slides.ResultDemo exposing (view)
+module Slides.ResultDemo exposing (BackgroundPosition(..), view)
 
 --import Date exposing (..)
 
@@ -17,15 +17,16 @@ import Time exposing (Month(..), Posix, utc)
 --import SyntaxHighlight exposing (HCode, Highlight(..), elm, highlightLines, monokai, toBlockHtml, useTheme)
 
 
-view : ResultDemoModel -> Html Msg
-view model =
+view : String -> BackgroundPosition -> ResultDemoModel -> Html Msg
+view url pos model =
     let
         result =
             toTime (model.date ++ "T00:00:00Z") |> posixResultToString
     in
     div []
         [ h1 [ centerStyle, titleSize2 ] [ text "Result Type" ]
-        , div [ mainFontSize2 ]
+
+        {--, div [ mainFontSize2 ]
             [ {- useTheme monokai
                  , elm exampleCode
                      |> Result.map (toBlockHtml (Just 1))
@@ -33,6 +34,13 @@ view model =
                          (pre [] [ code [] [ text exampleCode ] ])
               -}
               pre [] [ code [] [ text exampleCode ] ]
+              ]--}
+        , div
+            (setImage
+                url
+                pos
+            )
+            [--    [ img [ setWidth widthPercent, src url ] []
             ]
         , div [ mainFontSize2, centerStyle ]
             [ label [] [ text "Type in a Date:" ]
@@ -116,3 +124,46 @@ toMonthString month =
 myDeadEndsToString : List DeadEnd -> String
 myDeadEndsToString deadEnds =
     List.map (\x -> Debug.toString x.problem ++ " at row " ++ String.fromInt x.row ++ " and col " ++ String.fromInt x.col) deadEnds |> List.head |> Maybe.withDefault ""
+
+
+setImage : String -> BackgroundPosition -> List (Attribute Msg)
+setImage u pos =
+    let
+        xPos =
+            case pos of
+                Center ->
+                    "center"
+
+                Left ->
+                    "left"
+
+        yPos =
+            case pos of
+                Center ->
+                    "center"
+
+                Left ->
+                    "top"
+
+        bSize =
+            case pos of
+                Center ->
+                    "contain"
+
+                Left ->
+                    "auto"
+    in
+    [ style "backgroundImage" ("url(" ++ u ++ ")")
+    , style "backgroundSize" bSize
+    , style "backgroundRepeat" "no-repeat"
+    , style "backgroundPositionX" xPos
+    , style "backgroundPositionY" yPos
+    , style "height" "150px"
+    , style "marginBottom" "50px"
+    , style "backgroundColor" "#262626"
+    ]
+
+
+type BackgroundPosition
+    = Center
+    | Left
