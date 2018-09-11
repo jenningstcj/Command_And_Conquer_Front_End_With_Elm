@@ -11,6 +11,11 @@ img {
   max-width: 200px;
 }
 
+.name-form{
+  padding:10px;
+  border:2px solid red;
+}
+
 input{
   font-size:28pt;
 }
@@ -26,8 +31,3 @@ font-size:18pt;
   border:2px solid black;
 }
 
-
-#root{
-	padding:10px;
-  border:2px solid red;
-}

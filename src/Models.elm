@@ -1,14 +1,23 @@
-module Models exposing (..)
+module Models exposing (MaybeDemoModel, Model, ResultDemoModel)
 
+--import Date
+
+import Browser.Navigation as Nav
+import Parser exposing (Parser)
 import Route exposing (Route)
-import Date
+import Time exposing (Posix)
+import Url
+
 
 
 -- MODEL --
 
 
 type alias Model =
-    { route : Route
+    { navKey : Nav.Key
+    , url : Url.Url
+
+    --route : Route
     , showMenu : Bool
     , progressPercentage : Float
     , maybeDemoModel : MaybeDemoModel
@@ -23,5 +32,5 @@ type alias MaybeDemoModel =
 
 
 type alias ResultDemoModel =
-    { date : Result String Date.Date
+    { date : String --Result (List Parser.DeadEnd) Posix
     }

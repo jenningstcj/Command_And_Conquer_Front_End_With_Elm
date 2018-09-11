@@ -1,25 +1,26 @@
 import './main.css';
-import { Main } from './Main.elm';
+import * as nameForm from './Main.elm';
 import registerServiceWorker from './registerServiceWorker';
 
 
-let rootDiv = document.getElementById('root');
-let instance = Main.embed(rootDiv);
+var app = nameForm.Elm.Main.init({
+ node: document.getElementById('root')
+});
 
 registerServiceWorker();
 
 /*
-instance
-	.ports
-	.emitFormData
-	.subscribe(data => console.log('Data received:', data));
+app
+    .ports
+    .emitFormData
+    .subscribe(data => console.log('Data received:', data));
 
 
 document.getElementById('nonElmButton')
 	.addEventListener('click', (ev) => {
-	    instance
-			  .ports
-			  .receiveFormData
-			  .send({firstName:'John', lastName: 'Doe'});
+	    app
+        .ports
+        .receiveFormData
+        .send({firstName:'John', lastName: 'Doe'});
 });
 */

@@ -1,10 +1,14 @@
 module Msgs exposing (Msg(..))
 
+import Browser
 import Route exposing (Route)
+import Url
 
 
 type Msg
-    = SetRoute (Maybe Route)
+    = LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
+      -- |  SetRoute (Maybe Route)
     | Next
     | Prev
     | ToggleMenu
