@@ -56,15 +56,15 @@ view model =
 
                 Route.Currying_1 ->
                     --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
-                    TitleAndImage.view "Currying" "images/currying1.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Currying" "images/currying1.png" TitleAndImage.Left
 
                 Route.Currying_2 ->
                     --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
-                    TitleAndImage.view "Currying" "images/currying2.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Currying" "images/currying2.png" TitleAndImage.Left
 
                 Route.Currying_3 ->
                     --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
-                    TitleAndImage.view "Currying" "images/currying3.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Currying" "images/currying3.png" TitleAndImage.Left
 
                 {--
                 Route.Currying_4 ->
@@ -81,7 +81,7 @@ view model =
                     --}
                 Route.Advanced_Currying_1 ->
                     --CodeExamples.view "Currying" CodeExamples.mapExample 0 2
-                    TitleAndImage.view "Currying" "images/currying4.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Currying" "images/currying4.png" TitleAndImage.Left
 
                 {--
                 Route.Advanced_Currying_2 ->
@@ -98,11 +98,11 @@ view model =
                     --}
                 Route.Maybe_1 ->
                     --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
-                    TitleAndImage.view "Maybe Type" "images/maybe1.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Maybe Type" "images/maybe1.png" TitleAndImage.Left
 
                 Route.Maybe_2 ->
                     --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 4 8
-                    TitleAndImage.view "Maybe Type" "images/maybe2.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Maybe Type" "images/maybe2.png" TitleAndImage.Left
 
                 {--
                 Route.Maybe_3 ->
@@ -125,7 +125,7 @@ view model =
 
                 Route.Result_Type_1 ->
                     --CodeExamples.view "Result Type" CodeExamples.resultExample 0 3
-                    TitleAndImage.view "Result Type" "images/result1.PNG" TitleAndImage.Left
+                    TitleAndImage.view "Result Type" "images/result1.png" TitleAndImage.Left
 
                 {--
                 Route.Result_Type_2 ->
@@ -170,7 +170,7 @@ view model =
                     --}
                 Route.Elm_Architecture_1 ->
                     --CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
-                    TitleAndImage.view "The Elm Architecture" "images/architecture1.PNG" TitleAndImage.Left
+                    TitleAndImage.view "The Elm Architecture" "images/architecture1.png" TitleAndImage.Left
 
                 {--
                 Route.Elm_Architecture_2 ->

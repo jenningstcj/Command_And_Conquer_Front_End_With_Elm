@@ -14,7 +14,7 @@ import Views exposing (view)
 
 init : flags -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url False 0 (MaybeDemoModel (Just 0) "0") (ResultDemoModel "2018-08-17"), Nav.pushUrl key "/" )
+    ( Model key url False 0 (MaybeDemoModel (Just 0) "0") (ResultDemoModel "2018-10-13"), Nav.pushUrl key "/" )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
