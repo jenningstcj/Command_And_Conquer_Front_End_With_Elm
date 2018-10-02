@@ -30,6 +30,9 @@ view model =
     let
         getView =
             case Route.fromUrl model.url of
+                Route.Sponsors ->
+                    TitleAndImage.view "" "images/devspace-2018-sponsors.png" TitleAndImage.Center
+
                 Route.Home ->
                     Home.view
 
@@ -55,68 +58,23 @@ view model =
                     WhyElm1.view (WhyElm1.init 5)
 
                 Route.Currying_1 ->
-                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 0 1
                     TitleAndImage.view "Currying" "images/currying1.png" TitleAndImage.Left
 
                 Route.Currying_2 ->
-                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 1 2
                     TitleAndImage.view "Currying" "images/currying2.png" TitleAndImage.Left
 
                 Route.Currying_3 ->
-                    --CodeExamples.view "Currying" CodeExamples.simpleCurryExample1 2 3
                     TitleAndImage.view "Currying" "images/currying3.png" TitleAndImage.Left
 
-                {--
-                Route.Currying_4 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 4 5
-
-                Route.Currying_5 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 6 7
-
-                Route.Currying_6 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 7 8
-
-                Route.Currying_7 ->
-                    CodeExamples.view "Currying" CodeExamples.simpleCurryExample2 8 9
-                    --}
                 Route.Advanced_Currying_1 ->
-                    --CodeExamples.view "Currying" CodeExamples.mapExample 0 2
                     TitleAndImage.view "Currying" "images/currying4.png" TitleAndImage.Left
 
-                {--
-                Route.Advanced_Currying_2 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 3 5
-
-                Route.Advanced_Currying_3 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 6 7
-
-                Route.Advanced_Currying_4 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 8 9
-
-                Route.Advanced_Currying_5 ->
-                    CodeExamples.view "Currying" CodeExamples.mapExample 9 10
-                    --}
                 Route.Maybe_1 ->
-                    --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 0 3
                     TitleAndImage.view "Maybe Type" "images/maybe1.png" TitleAndImage.Left
 
                 Route.Maybe_2 ->
-                    --CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 4 8
                     TitleAndImage.view "Maybe Type" "images/maybe2.png" TitleAndImage.Left
 
-                {--
-                Route.Maybe_3 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample1 9 12
-
-                Route.Maybe_4 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 0 5
-
-                Route.Maybe_5 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 6 7
-
-                Route.Maybe_6 ->
-                    CodeExamples.view "Maybe Type" CodeExamples.maybeExample2 8 9
-                    --}
                 Route.Maybe_3 ->
                     MaybeDemo.view "images/MaybeDemo1.png" MaybeDemo.Left MaybeDemo.exampleCode1 model.maybeDemoModel Msgs.MaybeDemoUpdateNum1
 
@@ -124,19 +82,8 @@ view model =
                     MaybeDemo.view "images/MaybeDemo2.png" MaybeDemo.Left MaybeDemo.exampleCode2 model.maybeDemoModel Msgs.MaybeDemoUpdateNum2
 
                 Route.Result_Type_1 ->
-                    --CodeExamples.view "Result Type" CodeExamples.resultExample 0 3
                     TitleAndImage.view "Result Type" "images/result1.png" TitleAndImage.Left
 
-                {--
-                Route.Result_Type_2 ->
-                    CodeExamples.view "Result Type" CodeExamples.resultExample 4 7
-
-                Route.Result_Type_3 ->
-                    CodeExamples.view "Result Type" CodeExamples.resultExample 8 9
-
-                Route.Result_Type_4 ->
-                    CodeExamples.view "Result Type" CodeExamples.resultExample 10 11
-                    --}
                 Route.Result_Demo ->
                     ResultDemo.view "images/ResultDemo1.png" ResultDemo.Left model.resultDemoModel
 
@@ -155,30 +102,11 @@ view model =
                     TitleAndImage.view "" "images/Commands.svg" TitleAndImage.Center
 
                 Route.Commands_4 ->
-                    --CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 0 4
                     TitleAndImage.view "Cmd Msg" "images/command1.png" TitleAndImage.Left
 
-                {--
-                Route.Commands_5 ->
-                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 5 8
-
-                Route.Commands_6 ->
-                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 9 16
-
-                Route.Commands_7 ->
-                    CodeExamples.view "Cmd Msg" CodeExamples.commandExample1 12 14
-                    --}
                 Route.Elm_Architecture_1 ->
-                    --CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 0 1
                     TitleAndImage.view "The Elm Architecture" "images/architecture1.png" TitleAndImage.Left
 
-                {--
-                Route.Elm_Architecture_2 ->
-                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 2 5
-
-                Route.Elm_Architecture_3 ->
-                    CodeExamples.view "The Elm Architecture" CodeExamples.elmArchitecture 6 12
-                    --}
                 Route.Elm_Architecture_4 ->
                     TitleAndImage.view "" "images/Elm_Architecture.svg" TitleAndImage.Center
 

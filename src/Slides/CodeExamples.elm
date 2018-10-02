@@ -7,28 +7,12 @@ import Msgs exposing (Msg)
 import Styles exposing (centerStyle, fadeFont, hide, mainFontSize2, titleSize2)
 
 
-
---import SyntaxHighlight exposing (HCode, Highlight(..), elm, highlightLines, monokai, toBlockHtml, useTheme)
-{-
-   linesToHighlight : Int -> Int -> Result x HCode -> Result x HCode
-   linesToHighlight startingNum endingNum =
-       Result.map (highlightLines (Just Add) startingNum endingNum)
--}
-
-
 view : String -> String -> Int -> Int -> Html Msg
 view title codeBlock startingLine endingLine =
     div []
         [ h1 [ centerStyle, titleSize2 ] [ text title ]
         , div [ mainFontSize2 ]
-            [ {- useTheme monokai
-                 , elm codeBlock
-                     |> linesToHighlight startingLine endingLine
-                     |> Result.map (toBlockHtml (Just 1))
-                     |> Result.withDefault
-                         (pre [] [ code [] [ text codeBlock ] ])
-              -}
-              pre [] [ code [] [ text codeBlock ] ]
+            [ pre [] [ code [] [ text codeBlock ] ]
             ]
         ]
 

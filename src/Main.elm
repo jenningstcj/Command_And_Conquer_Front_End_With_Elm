@@ -14,7 +14,7 @@ import Views exposing (view)
 
 init : flags -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url False 0 (MaybeDemoModel (Just 0) "0") (ResultDemoModel "2018-10-13"), Nav.pushUrl key "/" )
+    ( Model key url False 0 (MaybeDemoModel (Just 0) "0") (ResultDemoModel "2018-10-13"), Nav.pushUrl key "/home" )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -206,13 +206,3 @@ main =
         , onUrlChange = UrlChanged
         , onUrlRequest = LinkClicked
         }
-
-
-
-{- Navigation.programWithFlags (Route.fromLocation >> SetRoute)
-   { init = init
-   , view = view
-   , update = update
-   , subscriptions = subscriptions
-   }
--}
